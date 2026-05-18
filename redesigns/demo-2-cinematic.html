@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Four Go East — One family, four backpacks, no return ticket.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e1410;
+    --bg-soft:#161e19;
+    --ink:#f1ece1;
+    --muted:#9a9b8f;
+    --saffron:#e8a13a;
+    --rust:#c25531;
+    --rule:rgba(241,236,225,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .mono{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .container{max-width:1340px;margin:0 auto;padding:0 40px}
+
+  /* NAV */
+  nav.top{position:fixed;top:0;left:0;right:0;z-index:50;padding:22px 40px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(8px);background:linear-gradient(to bottom,rgba(14,20,16,.85),rgba(14,20,16,0))}
+  .mark{display:flex;align-items:center;gap:12px;font-weight:900;font-size:13px;letter-spacing:.4em;text-transform:uppercase}
+  .mark .badge{width:30px;height:30px;border:1.5px solid var(--saffron);color:var(--saffron);display:grid;place-items:center;font-family:"Fraunces",serif;font-size:14px;font-weight:400;font-style:italic;border-radius:50%}
+  nav .links{display:flex;gap:34px}
+  nav .links a{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);opacity:.8;transition:opacity .2s}
+  nav .links a:hover{opacity:1;color:var(--saffron)}
+  .nav-cta{border:1px solid var(--saffron);color:var(--saffron);padding:10px 20px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;transition:all .2s}
+  .nav-cta:hover{background:var(--saffron);color:var(--bg)}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding-bottom:80px;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:url('https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/4a81ef77-bd20-4ea7-9a70-683d6c49b69d/tempImageTFsER3.jpg?format=2500w') center 30%/cover;filter:saturate(.85) contrast(1.05) brightness(.65)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(14,20,16,.25),rgba(14,20,16,.85) 70%),linear-gradient(to top,var(--bg) 0%,rgba(14,20,16,.4) 35%,rgba(14,20,16,.6) 100%)}
+  .hero-inner{position:relative;width:100%;z-index:2}
+  .hero-top{position:absolute;top:80px;left:40px;right:40px;display:flex;justify-content:space-between}
+  .hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:30px}
+  .hero-eyebrow .line{height:1px;width:80px;background:var(--saffron)}
+  h1.title{font-family:"Archivo",sans-serif;font-weight:900;font-size:clamp(64px,11vw,180px);line-height:.85;letter-spacing:-.04em;text-transform:uppercase}
+  h1.title .row{display:block;overflow:hidden}
+  h1.title em{font-family:"Fraunces",serif;font-style:italic;font-weight:400;color:var(--saffron);letter-spacing:-.02em;text-transform:none}
+  .tag{margin-top:28px;font-family:"Fraunces",serif;font-style:italic;font-size:26px;color:var(--ink);max-width:640px;line-height:1.4}
+  .hero-foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:60px;flex-wrap:wrap;gap:30px}
+  .scroll-hint{display:flex;align-items:center;gap:14px;color:var(--muted)}
+  .scroll-line{width:1px;height:46px;background:var(--saffron);animation:drop 2s ease-in-out infinite}
+  @keyframes drop{0%,100%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.01%{transform-origin:bottom}}
+  .meta-strip{display:flex;gap:50px}
+  .meta-strip div b{display:block;font-family:"Fraunces",serif;font-style:italic;font-size:36px;color:var(--saffron);font-weight:400;line-height:1;margin-bottom:6px}
+
+  /* PILLAR / WHO */
+  .pillar{padding:140px 0 120px;position:relative}
+  .pillar-row{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:center}
+  .pillar h2{font-family:"Archivo",sans-serif;font-weight:900;font-size:64px;line-height:.95;letter-spacing:-.025em;text-transform:uppercase;margin-bottom:30px}
+  .pillar h2 em{font-family:"Fraunces",serif;font-style:italic;font-weight:400;color:var(--saffron);text-transform:none;letter-spacing:-.015em}
+  .pillar p{font-family:"Fraunces",serif;font-size:22px;line-height:1.5;color:var(--ink);margin-bottom:20px;font-weight:400}
+  .pillar .num{position:absolute;top:80px;right:40px;font-family:"Fraunces",serif;font-style:italic;font-size:200px;color:var(--bg-soft);line-height:1;font-weight:400;z-index:0;letter-spacing:-.04em}
+
+  /* STORIES */
+  .stories{padding:60px 0 140px}
+  .stories-head{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--rule);padding:40px 0 60px}
+  .stories-head h2{font-family:"Archivo",sans-serif;font-weight:900;font-size:88px;line-height:.9;letter-spacing:-.03em;text-transform:uppercase}
+  .stories-head h2 em{font-family:"Fraunces",serif;font-style:italic;font-weight:400;color:var(--saffron);text-transform:none}
+  .stories-head a{align-self:flex-end;border-bottom:1px solid var(--saffron);color:var(--saffron);padding-bottom:6px;font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+
+  .story-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+  .card{position:relative;background:var(--bg-soft);overflow:hidden;display:flex;flex-direction:column;transition:transform .4s ease}
+  .card:hover{transform:translateY(-6px)}
+  .card .img{aspect-ratio:4/3;overflow:hidden;position:relative}
+  .card .img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .card:hover .img img{transform:scale(1.06)}
+  .card.tall .img{aspect-ratio:4/5}
+  .card .body{padding:30px;flex:1;display:flex;flex-direction:column;gap:18px}
+  .card .num-card{position:absolute;top:18px;left:18px;background:var(--bg);color:var(--saffron);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;padding:6px 12px;z-index:2}
+  .card h3{font-family:"Archivo",sans-serif;font-weight:700;font-size:30px;line-height:1.05;letter-spacing:-.015em;text-transform:uppercase}
+  .card p{font-family:"Fraunces",serif;font-style:italic;font-size:18px;color:var(--muted);line-height:1.4}
+  .card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:18px;border-top:1px solid var(--rule)}
+  .card .meta .arrow{color:var(--saffron);font-size:18px}
+
+  /* QUOTE BAND */
+  .band{padding:140px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 50%,var(--bg) 100%);text-align:center}
+  .band blockquote{font-family:"Fraunces",serif;font-style:italic;font-size:clamp(34px,5vw,68px);line-height:1.15;max-width:1080px;margin:0 auto;font-weight:400;letter-spacing:-.01em}
+  .band cite{display:block;margin-top:40px;color:var(--muted);font-style:normal;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+
+  /* BY THE NUMBERS */
+  .numbers{padding:120px 0}
+  .numbers h2{font-family:"Archivo",sans-serif;font-weight:900;font-size:64px;line-height:.95;letter-spacing:-.025em;text-transform:uppercase;margin-bottom:60px;max-width:780px}
+  .numbers h2 em{font-family:"Fraunces",serif;font-style:italic;font-weight:400;color:var(--saffron);text-transform:none}
+  .num-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule)}
+  .num-grid > div{padding:40px 30px 40px 0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .num-grid > div:nth-child(4n){border-right:none}
+  .num-grid b{display:block;font-family:"Fraunces",serif;font-style:italic;font-weight:400;font-size:84px;color:var(--saffron);line-height:1;margin-bottom:10px;letter-spacing:-.03em}
+  .num-grid span{display:block;color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+
+  /* CTA */
+  .cta{padding:140px 0;text-align:center;background:radial-gradient(ellipse at center top,rgba(232,161,58,.08),transparent 60%)}
+  .cta h2{font-family:"Archivo",sans-serif;font-weight:900;font-size:clamp(48px,7vw,110px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin-bottom:24px}
+  .cta h2 em{font-family:"Fraunces",serif;font-style:italic;font-weight:400;color:var(--saffron);text-transform:none}
+  .cta p{font-family:"Fraunces",serif;font-style:italic;font-size:24px;color:var(--muted);max-width:640px;margin:0 auto 50px}
+  .cta-form{display:flex;max-width:540px;margin:0 auto;border-bottom:1px solid var(--saffron)}
+  .cta-form input{flex:1;background:transparent;border:none;padding:18px 0;color:var(--ink);font-family:"Archivo",sans-serif;font-size:18px;outline:none}
+  .cta-form input::placeholder{color:var(--muted)}
+  .cta-form button{background:transparent;border:none;color:var(--saffron);font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;padding:0 6px}
+
+  /* FOOTER */
+  footer{padding:80px 0 40px;border-top:1px solid var(--rule)}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+  footer h4{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--saffron);margin-bottom:18px}
+  footer ul{list-style:none}
+  footer ul li{margin-bottom:10px;color:var(--muted)}
+  footer ul li a:hover{color:var(--ink)}
+  .foot-mark{font-family:"Archivo",sans-serif;font-weight:900;font-size:88px;line-height:.85;letter-spacing:-.04em;text-transform:uppercase}
+  .foot-mark em{font-family:"Fraunces",serif;font-style:italic;font-weight:400;color:var(--saffron);text-transform:none}
+  .foot-mark p{margin-top:18px;font-family:"Fraunces",serif;font-style:italic;font-size:18px;color:var(--muted);font-weight:400;line-height:1.5;letter-spacing:0;max-width:340px}
+  .foot-base{border-top:1px solid var(--rule);padding-top:30px;display:flex;justify-content:space-between;color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+
+  @media (max-width:880px){
+    .container{padding:0 20px}
+    nav .links{display:none}
+    .pillar-row{grid-template-columns:1fr;gap:30px}
+    .pillar .num{font-size:120px;top:20px;right:20px}
+    .story-grid{grid-template-columns:1fr;gap:40px}
+    .num-grid{grid-template-columns:repeat(2,1fr)}
+    .num-grid > div:nth-child(2n){border-right:none}
+    .foot-grid{grid-template-columns:1fr;gap:30px}
+    .stories-head{flex-direction:column;align-items:flex-start;gap:20px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="mark"><span class="badge">e</span> Four Go East</div>
+  <div class="links">
+    <a href="#stories">Stories</a>
+    <a href="#about">About</a>
+    <a href="#map">The Map</a>
+    <a href="#subscribe">Letters</a>
+  </div>
+  <a href="#subscribe" class="nav-cta">Subscribe →</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner container">
+    <div class="hero-top mono">
+      <span>Filed from 15.8801°N · 108.3380°E · Hội An</span>
+      <span>Issue 03 · May 2026</span>
+    </div>
+    <div class="hero-eyebrow"><span class="line"></span><span class="mono" style="color:var(--saffron)">One Family · Four Backpacks · No Return Ticket</span></div>
+    <h1 class="title">
+      <span class="row">Four <em>go</em></span>
+      <span class="row">east.</span>
+    </h1>
+    <p class="tag">A well-travelled UK family world-schooling two boys across South-east Asia — published in long form, from wherever we happen to be.</p>
+    <div class="hero-foot">
+      <div class="scroll-hint"><span class="mono">Scroll</span><div class="scroll-line"></div></div>
+      <div class="meta-strip">
+        <div><b>11</b><span class="mono">Countries</span></div>
+        <div><b>14</b><span class="mono">Months out</span></div>
+        <div><b>27</b><span class="mono">Dispatches</span></div>
+        <div><b>0</b><span class="mono">Return tickets</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pillar container" id="about">
+  <div class="num">/01</div>
+  <div class="pillar-row">
+    <h2>Why we went, <em>and why we kept going.</em></h2>
+    <div>
+      <p>We are J, R, E and e — one family from the UK. We recognised the limits that mainstream schooling has for our neurodiverse boys, sold most of what we owned, strapped on four backpacks and booked one-way tickets from Heathrow to Bangkok.</p>
+      <p>The West's bargain — work until you retire, then live the life you wanted — assumes a perfect health and a surviving pension we are not prepared to bet our family on. So we are showing the boys, rather than telling them, that there is more than one way to live. And more than one way to thrive.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stories container" id="stories">
+  <div class="stories-head">
+    <h2>Latest <em>dispatches</em></h2>
+    <a href="#">View the archive</a>
+  </div>
+  <div class="story-grid">
+    <article class="card tall">
+      <div class="img"><span class="num-card">01 / Cover</span><img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/608035b9-8853-4bd8-8996-d89948035f55/tempImageCNGToI.jpg?format=1500w" alt=""></div>
+      <div class="body">
+        <span class="mono">14 March 2026 · Hội An</span>
+        <h3>Tết II: Tết — A deep breath before plunging into a new year.</h3>
+        <p>Closed for Tết. Kumquat trees on scooters, red envelopes, bunting strung between the Vietnamese flag and the hammer-and-sickle. A pause before the year begins.</p>
+        <div class="meta"><span class="mono">9 min read</span><span class="arrow">→</span></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="img"><span class="num-card">02 / Family</span><img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/1772875491669-IUZEOTYLPR270ZUVXT81/tempImageCYVqSI.gif?format=750w" alt=""></div>
+      <div class="body">
+        <span class="mono">07 March 2026 · Hội An</span>
+        <h3>Tết I — E's Recollections.</h3>
+        <p>"Yeah… I mean, they don't bother me…" Our eldest on fireworks, family, and a city he is beginning to call his.</p>
+        <div class="meta"><span class="mono">6 min read</span><span class="arrow">→</span></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="img"><span class="num-card">03 / Field</span><img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/1770045741062-Z55YJ12A7IT0C11HA0MH/tempImage3nYkCa.gif?format=750w" alt=""></div>
+      <div class="body">
+        <span class="mono">02 February 2026 · Rural Quảng Nam</span>
+        <h3>The Living Tractors of the East.</h3>
+        <p>Solid masses of muscle and meat — and horns — lounging in shallow paddy water. Content and untroubled.</p>
+        <div class="meta"><span class="mono">7 min read</span><span class="arrow">→</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="band">
+  <div class="container">
+    <blockquote>"There is more than one way to live, <em>and more than one way to thrive.</em>"</blockquote>
+    <cite>— From the about page</cite>
+  </div>
+</section>
+
+<section class="numbers container">
+  <h2>The road, <em>by the numbers.</em></h2>
+  <div class="num-grid">
+    <div><b>1,247</b><span>Kilometres travelled</span></div>
+    <div><b>11</b><span>Countries visited</span></div>
+    <div><b>14</b><span>Months on the road</span></div>
+    <div><b>27</b><span>Long-form dispatches</span></div>
+    <div><b>0</b><span>Return tickets bought</span></div>
+    <div><b>4</b><span>Backpacks, 4 humans</span></div>
+    <div><b>2</b><span>Boys worldschooled</span></div>
+    <div><b>∞</b><span>Bowls of phở</span></div>
+  </div>
+</section>
+
+<section class="cta" id="subscribe">
+  <div class="container">
+    <h2>Read <em>along.</em></h2>
+    <p>A short letter every other Saturday. One dispatch, one photograph, one thing the boys said this week that we want to remember.</p>
+    <form class="cta-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Welcome aboard';this.querySelector('button').style.color='#fff';">
+      <input type="email" placeholder="you@somewhere.world" required>
+      <button type="submit">Subscribe →</button>
+    </form>
+  </div>
+</section>
+
+<footer id="map">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-mark">
+        Four<br>Go <em>east.</em>
+        <p>A long-form field journal kept by one family from the UK, world-schooling two boys across South-east Asia.</p>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <ul><li><a href="#">Latest dispatches</a></li><li><a href="#">Cover stories</a></li><li><a href="#">Field notes</a></li><li><a href="#">The archive</a></li></ul>
+      </div>
+      <div>
+        <h4>The Family</h4>
+        <ul><li><a href="#">Meet J, R, E & e</a></li><li><a href="#">Why we left</a></li><li><a href="#">World-schooling</a></li><li><a href="#">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <ul><li><a href="#">Instagram</a></li><li><a href="#">Substack</a></li><li><a href="#">Press</a></li><li><a href="mailto:hello@fourgoeast.com">hello@fourgoeast.com</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Four Go East</span>
+      <span>Written from the road · Hội An, VN</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

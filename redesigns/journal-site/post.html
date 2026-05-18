@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tết II: Tết — Four Go East</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .post-head{padding:20px 0 30px;text-align:center}
+  .post-head .meta-line{
+    display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
+    font-family:"Special Elite",monospace;font-size:12px;
+    letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);
+    margin-top:30px
+  }
+  .post-head .meta-line b{color:var(--ink);font-weight:bold}
+  .post-head .byline{
+    margin-top:18px;font-family:"Caveat",cursive;font-size:28px;color:var(--blue-pen);
+    transform:rotate(-1deg);display:inline-block
+  }
+
+  .post-hero{margin:50px auto 0;max-width:920px;position:relative}
+  .post-hero .frame{
+    background:#fff;padding:18px 18px 70px;
+    box-shadow:0 18px 60px rgba(60,40,10,.25);transform:rotate(-1.5deg);
+    position:relative
+  }
+  .post-hero .frame img{width:100%;aspect-ratio:16/10;object-fit:cover}
+  .post-hero .frame .cap{
+    font-family:"Caveat",cursive;font-size:30px;color:var(--ink);
+    text-align:center;margin-top:18px
+  }
+  .post-hero .tape-l,.post-hero .tape-r{
+    position:absolute;background:var(--tape);width:120px;height:26px;
+    box-shadow:0 1px 4px rgba(0,0,0,.1);z-index:2
+  }
+  .post-hero .tape-l{top:-12px;left:60px;transform:rotate(-6deg)}
+  .post-hero .tape-r{top:-8px;right:60px;transform:rotate(6deg);background:var(--tape-blue)}
+
+  .essay{
+    max-width:720px;margin:80px auto 60px;
+    font-family:"Crimson Pro",serif;font-size:20px;line-height:1.7
+  }
+  .essay p{margin-bottom:24px}
+  .essay p.lead::first-letter{
+    font-family:"Caveat",cursive;font-size:96px;float:left;line-height:.85;
+    padding:8px 14px 0 0;color:var(--red-stamp);font-weight:700
+  }
+  .essay h3.subhead{
+    font-family:"Caveat",cursive;font-size:48px;color:var(--ink);
+    margin:50px 0 20px;font-weight:700;line-height:1
+  }
+  .essay h3.subhead em{color:var(--red-stamp);font-style:italic}
+
+  .essay .pullquote{
+    font-family:"Caveat",cursive;font-size:46px;line-height:1.2;
+    color:var(--red-stamp);text-align:center;
+    border-top:2px dashed var(--paper-dark);border-bottom:2px dashed var(--paper-dark);
+    padding:40px 30px;margin:50px -40px;position:relative;font-weight:600
+  }
+  .essay .pullquote::before{
+    content:"\201C";position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+    background:var(--paper);padding:0 14px;font-size:60px;color:var(--red-stamp);
+    line-height:1
+  }
+
+  .essay .inline-img{margin:40px -40px}
+  .essay .inline-img .frame{
+    background:#fff;padding:16px 16px 50px;display:inline-block;
+    box-shadow:0 12px 30px rgba(60,40,10,.2);position:relative
+  }
+  .essay .inline-img.left .frame{transform:rotate(-2deg);float:left;margin:6px 36px 14px 0;max-width:380px}
+  .essay .inline-img.right .frame{transform:rotate(2deg);float:right;margin:6px 0 14px 36px;max-width:380px}
+  .essay .inline-img .frame img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .essay .inline-img .frame .cap{
+    font-family:"Caveat",cursive;font-size:22px;text-align:center;margin-top:10px;color:var(--ink)
+  }
+  .essay .inline-img .frame .pin{top:8px;left:24px;transform:none}
+  .essay::after{content:"";display:block;clear:both}
+
+  .tag-stamps{
+    max-width:720px;margin:60px auto 0;padding-top:30px;border-top:2px dashed var(--paper-dark);
+    display:flex;flex-wrap:wrap;gap:12px;align-items:center
+  }
+  .tag-stamps .label{
+    font-family:"Caveat",cursive;font-size:24px;color:var(--ink-soft);margin-right:6px
+  }
+  .tag-stamp{
+    font-family:"Special Elite",monospace;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;border:2px solid var(--green-stamp);color:var(--green-stamp);
+    padding:4px 10px;display:inline-block;transform:rotate(-2deg);background:rgba(255,255,255,.4)
+  }
+  .tag-stamp:nth-child(3n){border-color:var(--red-stamp);color:var(--red-stamp);transform:rotate(3deg)}
+  .tag-stamp:nth-child(4n){border-color:var(--blue-pen);color:var(--blue-pen);transform:rotate(-3deg)}
+
+  /* leave a note */
+  .leave-note{
+    max-width:720px;margin:80px auto 0;padding:30px;
+    background:#fff;box-shadow:0 8px 24px rgba(60,40,10,.15);
+    transform:rotate(-.6deg);position:relative
+  }
+  .leave-note .tape-strip{
+    position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-3deg);
+    width:120px;height:24px;background:var(--tape);box-shadow:0 1px 4px rgba(0,0,0,.08)
+  }
+  .leave-note h4{font-family:"Caveat",cursive;font-size:36px;margin-bottom:8px;color:var(--ink)}
+  .leave-note h4 em{color:var(--red-stamp);font-style:italic}
+  .leave-note p{font-family:"Crimson Pro",serif;font-style:italic;color:var(--ink-soft);margin-bottom:16px}
+  .leave-note textarea{
+    width:100%;background:transparent;border:none;
+    background-image:linear-gradient(to bottom,transparent 30px,var(--paper-dark) 30px,var(--paper-dark) 31px,transparent 31px);
+    background-size:100% 32px;line-height:32px;
+    font-family:"Caveat",cursive;font-size:22px;color:var(--blue-pen);
+    outline:none;resize:none;height:128px;padding:0
+  }
+  .leave-note .form-row{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+  .leave-note .form-row span{font-family:"Caveat",cursive;color:var(--ink-soft)}
+  .leave-note button{
+    background:var(--red-stamp);color:#fff;border:none;padding:10px 22px;
+    font-family:"Special Elite",monospace;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;cursor:pointer;transform:rotate(-2deg);
+    box-shadow:0 4px 10px rgba(169,56,40,.3)
+  }
+
+  /* Prev / next nav */
+  .pn{
+    margin:80px auto 60px;max-width:920px;
+    display:grid;grid-template-columns:1fr 1fr;gap:30px
+  }
+  .pn a{
+    background:#fff;padding:24px;display:block;
+    box-shadow:0 6px 18px rgba(60,40,10,.14);transition:transform .25s ease;
+    position:relative
+  }
+  .pn a:hover{transform:translateY(-4px) scale(1.02)}
+  .pn a:first-child{transform:rotate(-1deg)}
+  .pn a:last-child{transform:rotate(1deg);text-align:right}
+  .pn a:first-child:hover{transform:rotate(-1deg) translateY(-4px) scale(1.02)}
+  .pn a:last-child:hover{transform:rotate(1deg) translateY(-4px) scale(1.02)}
+  .pn .label{
+    font-family:"Special Elite",monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;display:block
+  }
+  .pn h4{
+    font-family:"Caveat",cursive;font-size:30px;line-height:1.05;color:var(--ink);font-weight:700
+  }
+  .pn h4 em{color:var(--red-stamp);font-style:italic}
+
+  @media (max-width:880px){
+    .essay{font-size:18px;padding:0 6px}
+    .essay .inline-img.left .frame,.essay .inline-img.right .frame{float:none;margin:20px auto;display:block;max-width:100%}
+    .essay .inline-img{margin:30px 0}
+    .essay .pullquote{font-size:32px;margin:30px -10px;padding:30px 20px}
+    .pn{grid-template-columns:1fr}
+    .post-hero .tape-l,.post-hero .tape-r{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site">
+  <div class="brand">
+    <span class="brand-stamp">FGE · '26</span>
+    <a href="index.html"><h1>Four Go East</h1></a>
+  </div>
+  <div class="navlinks">
+    <a href="index.html">Home</a>
+    <a href="journal.html">Journal</a>
+    <a href="about.html">The Four</a>
+    <a href="map.html">The Map</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="post-head">
+    <div class="breadcrumb"><a href="index.html">home</a><span class="sep">→</span><a href="journal.html">the journal</a><span class="sep">→</span><span>tết ii</span></div>
+    <div class="title-block" style="margin-top:30px">
+      <span class="tape t1"></span>
+      <span class="tape t2"></span>
+      <h2 class="titlemark">Tết II: <span class="ink">Tết</span></h2>
+      <div class="sub">a deep breath before plunging into a new year</div>
+    </div>
+    <div class="meta-line">
+      <span>Filed <b>14 March 2026</b></span>
+      <span>Hội An, Việt Nam</span>
+      <span><b>9 minute</b> read</span>
+    </div>
+    <div class="byline">— Written by James ✻</div>
+  </header>
+
+  <section class="post-hero">
+    <span class="tape-l"></span>
+    <span class="tape-r"></span>
+    <div class="frame">
+      <img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/608035b9-8853-4bd8-8996-d89948035f55/tempImageCNGToI.jpg?format=2500w" alt="Closed for Tết">
+      <div class="cap">Closed for Tết — Hội An, the morning of the new year</div>
+    </div>
+  </section>
+
+  <article class="essay">
+    <p class="lead">Tết was an interesting experience, given that we are on the periphery of Vietnamese culture; closer than tourists but still very-much on the outer hinterland, which is to be expected. Anecdotal knowledge gleaned from people within the community who have experienced Tết before varied greatly, which led us to believe it would be either reminiscent to a zombie apocalypse, where the poor white westerners would be scrabbling around for grains of rice on the streets for the duration, or alternatively it would be business as usual, just with a tad more karaoke.</p>
+
+    <p>The truth was somewhere in the middle, at least here in Hội An. Apparently in smaller towns and villages outside of major conurbations you really would find eerie scenes of desolation, but given that Hội An is a major tourist town, many locals stayed for the duration.</p>
+
+    <div class="inline-img left">
+      <div class="frame">
+        <span class="pin"></span>
+        <img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/7cbb86da-9282-489e-825e-79202b883058/tempImage4LJO7g.jpg?format=750w" alt="Kumquat trees">
+        <div class="cap">Kumquat trees — wealth on a scooter</div>
+      </div>
+    </div>
+
+    <p>Tết is the most important holiday in Vietnam, the lunar new year. Essentially it's their value of Christmas and New Year's all rolled into one. And just like Christmas in the West, traditional practices collide with contemporary trends, innovations in technology and individual preferences.</p>
+
+    <p>Some of the most common aspects of Tết is the giving of money in special red envelopes (the colour red symbolises good luck), from older people to the young, to wish them health and success — as visitors, we were encouraged to join in with this practice, and did so with the family of the first landlord we had.</p>
+
+    <p>People also display bright yellow apricot blossoms, and the sight of trucks, trailers or even adapted scooters carrying big pots of kumquat trees, the small orange balls bouncing in transit, is a common one. The kumquats (I mistakenly thought they were satsumas) represent wealth, whilst the tree itself symbolises longevity and luck, and are usually placed at the entrance to a property.</p>
+
+    <h3 class="subhead">And then, <em>the flags</em>.</h3>
+
+    <p>The flags are everywhere. Outside of people's houses, bunting strung up across roads — a combination of the Vietnamese flag (surely one of the coolest flags) as well as the communist hammer-and-sickle motif, bringing cheerful USSR flashbacks. Tết is officially a three-day celebration, but usually extends to a week. Some shops and restaurants are closed for a few days either side of this, whereas some are open throughout.</p>
+
+    <div class="pullquote">
+      It was a pause. A deep breath <br>before plunging into a new year.
+    </div>
+
+    <p>In the end, I suppose, when viewed from the outside-in, as we are in this culture, Tết came and went in a fluttering blaze of coloured bunting, yellow kumquat trees, intermittent fireworks and karaoke.</p>
+
+    <div class="inline-img right">
+      <div class="frame">
+        <img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/385e1f09-b046-4b74-a282-10d3c8ec09e6/tempImagewHrZus.jpg?format=750w" alt="Bunting">
+        <div class="cap">CHÚC MỪNG NĂM MỚI — happy new year ✻</div>
+      </div>
+    </div>
+
+    <p>It was good to witness it firsthand, as a few years before when travelling around India we had experienced Diwali in Udaipur and Jodhpur, which was (as India is in general) a lot more intense, a lot more urgent. Tết was a time of celebration but also of rest, and reflection.</p>
+
+    <p>A pause, a deep breath before plunging into a new year.</p>
+
+    <p style="font-family:Caveat,cursive;font-size:32px;color:var(--blue-pen);text-align:right;transform:rotate(-2deg);display:inline-block;margin-top:30px">— J ✻</p>
+  </article>
+
+  <div class="tag-stamps">
+    <span class="label">tagged →</span>
+    <span class="tag-stamp">Tết Vietnam</span>
+    <span class="tag-stamp">Lunar New Year</span>
+    <span class="tag-stamp">Hội An</span>
+    <span class="tag-stamp">Vietnamese Culture</span>
+    <span class="tag-stamp">Holidays Abroad</span>
+    <span class="tag-stamp">Travel Writing</span>
+    <span class="tag-stamp">Family</span>
+  </div>
+
+  <section class="leave-note">
+    <span class="tape-strip"></span>
+    <h4>Leave a note in <em>the margins</em></h4>
+    <p>If anything resonated — or jarred — we'd love to hear it. We read every reply.</p>
+    <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ thank you — sent'">
+      <textarea placeholder="Write a few lines here…"></textarea>
+      <div class="form-row">
+        <span>— from a friend of the road</span>
+        <button type="submit">Slip it under the door →</button>
+      </div>
+    </form>
+  </section>
+
+  <nav class="pn">
+    <a href="post.html">
+      <span class="label">← Older entry</span>
+      <h4>Tết I: <em>E's recollections</em></h4>
+    </a>
+    <a href="post.html">
+      <span class="label">Newer entry →</span>
+      <h4>The fruit man <em>and the rice festival</em></h4>
+    </a>
+  </nav>
+
+  <section class="postcard">
+    <div class="pc-wrap">
+      <div class="pc-front">
+        <h3>Read <em>the next page?</em></h3>
+        <p>A short letter every other Saturday with the latest entry, a photograph, and a daft thing one of the boys said this week.</p>
+        <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ on its way';">
+          <input type="text" placeholder="Your name…" required>
+          <input type="email" placeholder="Where shall we send it…" required>
+          <button type="submit">Pop in the post →</button>
+        </form>
+      </div>
+      <div class="pc-back">
+        <div class="pc-stamp-box"><span>FGE</span>'VIET NAM'<br>POSTAGE PAID</div>
+        <div class="pc-postmark">HOI AN<br>· 18 · 05 · 26 ·<br>VIETNAM</div>
+        <div class="pc-address">
+          <div>To: a friend</div>
+          <div>of the road</div>
+          <div>somewhere warm</div>
+          <div>the world ✻</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site">
+  <p>Made with sticky-tape and slow internet — somewhere east of London ✻</p>
+  <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="journal.html">Journal</a>
+    <a href="about.html">The Four</a>
+    <a href="map.html">The Map</a>
+    <a href="mailto:hello@fourgoeast.com">hello@fourgoeast.com</a>
+  </div>
+  <div class="typed">© 2026 four humans, four backpacks · hello@fourgoeast.com</div>
+</footer>
+
+</body>
+</html>

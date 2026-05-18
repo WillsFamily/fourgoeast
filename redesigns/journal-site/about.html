@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Four — Four Go East</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .who-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:60px 40px;
+    padding:50px 0 70px
+  }
+  .who-card{
+    display:grid;grid-template-columns:230px 1fr;gap:30px;align-items:start;position:relative
+  }
+  .who-card:nth-child(2n) .photo{transform:rotate(2deg)}
+  .who-card:nth-child(2n+1) .photo{transform:rotate(-2deg)}
+  .who-card .photo{
+    background:#fff;padding:14px 14px 40px;
+    box-shadow:0 10px 26px rgba(60,40,10,.2);position:relative
+  }
+  .who-card .photo .face{
+    width:200px;height:200px;display:grid;place-items:center;
+    font-family:"Caveat",cursive;font-size:96px;font-weight:700;color:#fff;
+    border-radius:50%
+  }
+  .who-card:nth-child(1) .face{background:linear-gradient(135deg,#3d6a4a,#5a8569)}
+  .who-card:nth-child(2) .face{background:linear-gradient(135deg,#a93828,#c25a3f)}
+  .who-card:nth-child(3) .face{background:linear-gradient(135deg,#23437a,#3e6aaa)}
+  .who-card:nth-child(4) .face{background:linear-gradient(135deg,#a07a2c,#c89a4a)}
+  .who-card .photo .cap{
+    font-family:"Caveat",cursive;font-size:24px;color:var(--ink);
+    text-align:center;margin-top:14px
+  }
+  .who-card .pin{top:-8px;left:50%}
+  .who-card .body h3{
+    font-family:"Caveat",cursive;font-size:48px;color:var(--ink);
+    margin-bottom:8px;line-height:1;font-weight:700
+  }
+  .who-card .body h3 em{color:var(--red-stamp);font-style:italic}
+  .who-card .body .role{
+    font-family:"Special Elite",monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px;display:inline-block;
+    border:2px solid var(--green-stamp);color:var(--green-stamp);padding:3px 8px;
+    transform:rotate(-3deg)
+  }
+  .who-card:nth-child(2) .role{border-color:var(--red-stamp);color:var(--red-stamp);transform:rotate(2deg)}
+  .who-card:nth-child(3) .role{border-color:var(--blue-pen);color:var(--blue-pen);transform:rotate(-2deg)}
+  .who-card:nth-child(4) .role{border-color:#a07a2c;color:#a07a2c;transform:rotate(3deg)}
+  .who-card .body p{
+    font-family:"Crimson Pro",serif;font-size:18px;line-height:1.55;
+    color:var(--ink);margin-bottom:14px
+  }
+  .who-card .body p i{font-style:italic;color:var(--ink-soft)}
+
+  /* prose sections */
+  .why{padding:70px 0;border-top:2px dashed var(--paper-dark)}
+  .why-grid{display:grid;grid-template-columns:.7fr 1fr;gap:60px}
+  .why-grid .left h3{font-family:"Caveat",cursive;font-size:80px;line-height:.9;color:var(--ink);font-weight:700}
+  .why-grid .left h3 em{color:var(--red-stamp);font-style:italic}
+  .why-grid .left .sub{
+    font-family:"Special Elite",monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);margin-top:14px
+  }
+  .why-grid .right{font-family:"Crimson Pro",serif;font-size:20px;line-height:1.7}
+  .why-grid .right p{margin-bottom:18px}
+  .why-grid .right p:first-child::first-letter{
+    font-family:"Caveat",cursive;font-size:72px;float:left;line-height:.85;
+    padding:6px 12px 0 0;color:var(--red-stamp);font-weight:700
+  }
+  .why-grid .right .signoff{
+    margin-top:14px;font-family:"Caveat",cursive;font-size:32px;color:var(--blue-pen);
+    transform:rotate(-2deg);display:inline-block
+  }
+
+  /* timeline */
+  .timeline{padding:70px 0;border-top:2px dashed var(--paper-dark)}
+  .timeline h3{
+    font-family:"Caveat",cursive;font-size:60px;text-align:center;margin-bottom:6px;font-weight:700
+  }
+  .timeline h3 em{color:var(--red-stamp);font-style:italic}
+  .timeline .sub{
+    text-align:center;font-family:"Special Elite",monospace;font-size:12px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:40px
+  }
+  .tl-list{position:relative;max-width:780px;margin:0 auto}
+  .tl-list::before{
+    content:"";position:absolute;top:0;bottom:0;left:24px;width:2px;
+    background:repeating-linear-gradient(to bottom,var(--ink-soft) 0 6px,transparent 6px 12px);
+    opacity:.4
+  }
+  .tl-item{position:relative;padding:0 0 30px 70px;display:grid;grid-template-columns:auto 1fr;gap:20px}
+  .tl-item .dot{
+    position:absolute;left:14px;top:6px;width:22px;height:22px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--ink);box-shadow:0 0 0 4px var(--paper)
+  }
+  .tl-item.now .dot{background:var(--red-stamp);border-color:var(--red-stamp);box-shadow:0 0 0 4px var(--paper),0 0 0 8px rgba(169,56,40,.2)}
+  .tl-item .when{
+    font-family:"Special Elite",monospace;font-size:12px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--ink-soft);min-width:130px
+  }
+  .tl-item .what h4{
+    font-family:"Caveat",cursive;font-size:32px;color:var(--ink);line-height:1;margin-bottom:6px;font-weight:700
+  }
+  .tl-item .what h4 em{color:var(--red-stamp);font-style:italic}
+  .tl-item .what p{font-family:"Crimson Pro",serif;font-style:italic;color:var(--ink-soft);font-size:17px;line-height:1.4}
+
+  /* worldschool / FAQ */
+  .ws{padding:70px 0;border-top:2px dashed var(--paper-dark);background:rgba(255,255,255,.3)}
+  .ws-head{text-align:center;margin-bottom:40px}
+  .ws-head h3{font-family:"Caveat",cursive;font-size:60px;font-weight:700}
+  .ws-head h3 em{color:var(--red-stamp);font-style:italic}
+  .ws-head .sub{
+    font-family:"Crimson Pro",serif;font-style:italic;color:var(--ink-soft);
+    font-size:18px;max-width:580px;margin:6px auto 0
+  }
+  .faq{max-width:820px;margin:0 auto}
+  .faq details{
+    background:#fff;margin-bottom:14px;padding:20px 26px;
+    box-shadow:0 4px 12px rgba(60,40,10,.1);transition:transform .25s
+  }
+  .faq details[open]{transform:rotate(-.4deg)}
+  .faq summary{
+    list-style:none;cursor:pointer;font-family:"Caveat",cursive;font-size:30px;
+    color:var(--ink);display:flex;justify-content:space-between;align-items:center;font-weight:700
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{
+    content:"+";color:var(--red-stamp);font-size:36px;line-height:.8;transition:transform .25s
+  }
+  .faq details[open] summary::after{content:"–"}
+  .faq summary em{color:var(--red-stamp);font-style:italic}
+  .faq details p{
+    font-family:"Crimson Pro",serif;font-size:18px;line-height:1.6;
+    color:var(--ink);margin-top:14px
+  }
+  .faq details p + p{margin-top:10px}
+
+  @media (max-width:880px){
+    .who-grid{grid-template-columns:1fr;gap:50px}
+    .who-card{grid-template-columns:1fr;text-align:center;justify-items:center}
+    .who-card .photo{margin:0 auto}
+    .why-grid{grid-template-columns:1fr;gap:30px}
+    .why-grid .left h3{font-size:54px}
+    .tl-item .when{min-width:0}
+    .tl-item{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site">
+  <div class="brand">
+    <span class="brand-stamp">FGE · '26</span>
+    <a href="index.html"><h1>Four Go East</h1></a>
+  </div>
+  <div class="navlinks">
+    <a href="index.html">Home</a>
+    <a href="journal.html">Journal</a>
+    <a href="about.html" class="active">The Four</a>
+    <a href="map.html">The Map</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="pagetop">
+    <div class="breadcrumb"><a href="index.html">home</a><span class="sep">→</span><span>the four</span></div>
+    <div class="title-block">
+      <span class="tape t1"></span>
+      <span class="tape t2"></span>
+      <h2 class="titlemark">Meet the <span class="ink">four</span></h2>
+      <div class="sub">one family · four backpacks · ten passports, full of stamps</div>
+    </div>
+  </header>
+
+  <section class="who-grid">
+
+    <div class="who-card">
+      <div class="photo">
+        <span class="pin"></span>
+        <div class="face">J</div>
+        <div class="cap">James, the writer</div>
+      </div>
+      <div class="body">
+        <h3>J — <em>James, Dad</em></h3>
+        <span class="role">Writer-in-residence</span>
+        <p>The one with the notebook permanently in his back pocket and the slow internet connection permanently in his face. Writes the dispatches you read here. Cooks the porridge. Reads the same five-page bedtime story until it has become a kind of family folk-tale.</p>
+        <p><i>Previously: in recovery, in publishing, in a small flat in south London where the boiler never quite worked. Now: on the back of a scooter with two children behind him, asking what's for dinner.</i></p>
+      </div>
+    </div>
+
+    <div class="who-card">
+      <div class="photo">
+        <span class="pin"></span>
+        <div class="face">R</div>
+        <div class="cap">Ramona, the navigator</div>
+      </div>
+      <div class="body">
+        <h3>R — <em>Ramona, Mum</em></h3>
+        <span class="role">Chief navigator</span>
+        <p>Plans the routes, finds the rooms, knows where the nearest pharmacy is in every town we land in, and keeps the family's documents in an actually-coherent system. Has talked us into more good ideas than any of us would have managed alone.</p>
+        <p><i>The reason we are here. The reason we are still here, fourteen months on. The reason we will still be here when we are somewhere else.</i></p>
+      </div>
+    </div>
+
+    <div class="who-card">
+      <div class="photo">
+        <span class="pin"></span>
+        <div class="face">E</div>
+        <div class="cap">E, twelve and reading</div>
+      </div>
+      <div class="body">
+        <h3>E — <em>The eldest, 12</em></h3>
+        <span class="role">Reader · swimmer</span>
+        <p>Currently working his way through anything with a dragon in it. Asks impossible questions about the buffalo on his evening walks. Has decided, with no encouragement from anyone, that he is going to be a marine biologist, an architect and a chef.</p>
+        <p><i>Started this trip nervous of strangers and afraid of new food. Recently asked the lady at the market for "another one of those, please, but spicier, please, mum is being boring."</i></p>
+      </div>
+    </div>
+
+    <div class="who-card">
+      <div class="photo">
+        <span class="pin"></span>
+        <div class="face">e</div>
+        <div class="cap">e, ten and in charge</div>
+      </div>
+      <div class="body">
+        <h3>e — <em>The boss, 10</em></h3>
+        <span class="role">Two e's · one boss</span>
+        <p>Yes, two e's. The younger one. Maker of friends in any language, particularly the bánh mì lady on our corner and the dog that lives outside the bakery. Knows everyone's name in a six-street radius. Loses every single one of his socks within a week.</p>
+        <p><i>The unofficial mayor of whichever town we are in. Has a five-year plan and it involves a boat.</i></p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="why">
+    <div class="why-grid">
+      <div class="left">
+        <h3>Why we <em>left</em></h3>
+        <div class="sub">a letter from J</div>
+      </div>
+      <div class="right">
+        <p>The morning we left London Heathrow with one-way tickets to Bangkok we had no real plan beyond a vague easterly direction and a quiet conviction that the long, retirement-deferred life of the West was not the only one on offer to us.</p>
+        <p>We had recognised the limits that mainstream education has for our two boys — both neurodiverse in their own ways, both bright, both quietly miserable in classrooms that asked them to sit still and be quiet for the better part of a decade. We did not want them to be told who they were by a building. We wanted to show them.</p>
+        <p>The West's bargain — <strong>work until you retire, then live the life you wanted</strong> — assumes a perfect health and a surviving pension that we are not prepared to bet our family on. So we sold most of what we owned, strapped on four backpacks, and started moving east.</p>
+        <p>It is, fourteen months in, the best thing we have ever done. The hardest, also. The two are usually the same thing.</p>
+        <div class="signoff">— J ✻</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline">
+    <h3>Where we've <em>been</em></h3>
+    <div class="sub">a rough chronology · eleven countries so far</div>
+    <div class="tl-list">
+      <div class="tl-item">
+        <span class="dot"></span>
+        <span class="when">2023 · Spring</span>
+        <div class="what"><h4>India &amp; <em>Nepal</em></h4><p>Three months across Rajasthan and into the foothills of the Himalaya — Diwali in Udaipur, dal in Pokhara.</p></div>
+      </div>
+      <div class="tl-item">
+        <span class="dot"></span>
+        <span class="when">2024 · Summer</span>
+        <div class="what"><h4>Malaysia, <em>Penang</em></h4><p>A long lazy month of laksa and street art and humidity that taught us how to walk slowly.</p></div>
+      </div>
+      <div class="tl-item">
+        <span class="dot"></span>
+        <span class="when">March 2025</span>
+        <div class="what"><h4>The big <em>departure</em></h4><p>One-way tickets booked. Heathrow → Bangkok. Backpacks on. No return.</p></div>
+      </div>
+      <div class="tl-item">
+        <span class="dot"></span>
+        <span class="when">June 2025</span>
+        <div class="what"><h4>Chiang Mai, <em>Northern Thailand</em></h4><p>Three months in the foothills — the slow start to slow travel, and the boys' first lessons in Thai.</p></div>
+      </div>
+      <div class="tl-item">
+        <span class="dot"></span>
+        <span class="when">October 2025</span>
+        <div class="what"><h4>Đà Nẵng, <em>arriving in Vietnam</em></h4><p>Two weeks of corrupt officials and flooding before the country let us in properly. We deserved it.</p></div>
+      </div>
+      <div class="tl-item now">
+        <span class="dot"></span>
+        <span class="when">Now · May 2026</span>
+        <div class="what"><h4>Hội An, <em>Việt Nam</em></h4><p>Home, for now. A yellow town between rice paddies and the sea. The longest we've been anywhere in fourteen months.</p></div>
+      </div>
+      <div class="tl-item">
+        <span class="dot"></span>
+        <span class="when">Onward · ??</span>
+        <div class="what"><h4>Probably <em>north</em></h4><p>Hà Nội. Then maybe Laos. Then we shall see — that, after all, is the whole point.</p></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:30px"><a href="map.html" class="read-more" style="font-size:26px">see the full route on the map →</a></div>
+  </section>
+
+  <section class="ws">
+    <div class="container">
+      <div class="ws-head">
+        <h3>Things people <em>ask us</em></h3>
+        <p class="sub">If we haven't answered your one, please write — we love a good question.</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>What <em>do you mean</em> by world-schooling?</summary>
+          <p>The short answer: the world is the curriculum. We use a loose framework of reading, writing, maths and project work, but most of our days look more like field trips than lessons. The boys learn currencies by buying mangoes, geography by booking trains, language by haggling at markets. We keep a portfolio of their work and check in with their progress weekly.</p>
+          <p>The long answer: a whole blog post — <a href="post.html" style="color:var(--blue-pen);border-bottom:1.5px solid var(--blue-pen)">read it here →</a></p>
+        </details>
+        <details>
+          <summary>How do you <em>afford this</em>?</summary>
+          <p>We sold most of what we owned, including a small flat in south London, and we live carefully. James freelances when he can; Ramona consults remotely a few hours a week. The day-to-day cost of living in Hội An is a fraction of what London cost us — rent on a two-bed family home here is less than the council tax we used to pay.</p>
+        </details>
+        <details>
+          <summary>What about <em>the children's socialising</em>?</summary>
+          <p>The most common question, and the easiest one. Both boys have more friends than they ever did at school. There is a substantial worldschooling community in Hội An — twenty or so families at any time, from all over — plus the local boys they play football with, plus their friends back home over video call. They are, if anything, over-socialised.</p>
+        </details>
+        <details>
+          <summary>Don't you <em>miss home</em>?</summary>
+          <p>Yes, often. We miss particular people, particular pubs, the smell of Sunday roast in our kitchen, the quiet of a London Sunday morning. We miss our parents. But "home" has turned out to be a less geographical thing than we thought it was. It is, mostly, the other three of us.</p>
+        </details>
+        <details>
+          <summary>Will you <em>ever come back</em>?</summary>
+          <p>Honestly — we don't know. The plan is no plan. We have a flat in storage and a cat at my mother's. We will probably go back to visit. Whether we settle there again, or somewhere else, or just keep going for as long as the boys will let us — we genuinely have no idea. Which, fourteen months in, feels right.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="postcard">
+    <div class="pc-wrap">
+      <div class="pc-front">
+        <h3>Stay in <em>touch?</em></h3>
+        <p>A short letter every other Saturday with the latest entry, a photograph, and a daft thing one of the boys said this week.</p>
+        <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ on its way';">
+          <input type="text" placeholder="Your name…" required>
+          <input type="email" placeholder="Where shall we send it…" required>
+          <button type="submit">Pop in the post →</button>
+        </form>
+      </div>
+      <div class="pc-back">
+        <div class="pc-stamp-box"><span>FGE</span>'VIET NAM'<br>POSTAGE PAID</div>
+        <div class="pc-postmark">HOI AN<br>· 18 · 05 · 26 ·<br>VIETNAM</div>
+        <div class="pc-address">
+          <div>To: a friend</div>
+          <div>of the road</div>
+          <div>somewhere warm</div>
+          <div>the world ✻</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site">
+  <p>Made with sticky-tape and slow internet — somewhere east of London ✻</p>
+  <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="journal.html">Journal</a>
+    <a href="about.html">The Four</a>
+    <a href="map.html">The Map</a>
+    <a href="mailto:hello@fourgoeast.com">hello@fourgoeast.com</a>
+  </div>
+  <div class="typed">© 2026 four humans, four backpacks · hello@fourgoeast.com</div>
+</footer>
+
+</body>
+</html>

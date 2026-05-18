@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Four Go East — The Dispatch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5efe3;
+    --paper-deep:#ece4d2;
+    --ink:#1c1c1a;
+    --ink-soft:#3a3a36;
+    --rule:#cbc2ad;
+    --terracotta:#b8553a;
+    --moss:#2e4a36;
+    --gold:#a07a2c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);font-family:"Cormorant Garamond",serif;font-size:19px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .mono{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+  .serif{font-family:"Playfair Display",serif}
+  .container{max-width:1280px;margin:0 auto;padding:0 48px}
+
+  /* MASTHEAD */
+  .masthead{border-bottom:1px solid var(--rule);padding:18px 0;background:var(--paper);position:sticky;top:0;z-index:10}
+  .masthead-row{display:flex;align-items:center;justify-content:space-between}
+  .wordmark{font-family:"Playfair Display",serif;font-weight:900;font-size:22px;letter-spacing:.04em}
+  .wordmark span{color:var(--terracotta)}
+  .nav-links{display:flex;gap:30px}
+  .nav-links a{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s}
+  .nav-links a:hover{color:var(--terracotta)}
+
+  /* ISSUE BAR */
+  .issuebar{border-bottom:1px solid var(--rule);background:var(--paper-deep)}
+  .issuebar-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+  .issuebar-row b{color:var(--terracotta);font-weight:500}
+
+  /* HERO */
+  .hero{padding:70px 0 60px;border-bottom:1px solid var(--rule)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:end}
+  .hero-eyebrow{display:flex;gap:14px;align-items:center;margin-bottom:30px}
+  .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--terracotta)}
+  h1.hero-title{font-family:"Playfair Display",serif;font-weight:900;font-size:104px;line-height:.92;letter-spacing:-.02em;margin-bottom:24px}
+  h1.hero-title em{font-style:italic;color:var(--terracotta);font-weight:400}
+  .hero-deck{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:28px;line-height:1.35;color:var(--ink-soft);margin-bottom:34px;max-width:560px}
+  .hero-meta{display:flex;gap:34px;padding-top:22px;border-top:1px solid var(--rule)}
+  .hero-meta div b{display:block;color:var(--terracotta);font-family:"Playfair Display",serif;font-size:24px;font-weight:700;margin-bottom:4px}
+  .hero-image{position:relative;aspect-ratio:4/5;background:url('https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/4a81ef77-bd20-4ea7-9a70-683d6c49b69d/tempImageTFsER3.jpg?format=1500w') center/cover;filter:saturate(.95) contrast(1.02)}
+  .hero-caption{position:absolute;bottom:-1px;left:-1px;right:-1px;background:var(--paper);padding:14px 18px;border-top:1px solid var(--rule)}
+
+  /* DISPATCH SECTION */
+  .section-head{display:flex;justify-content:space-between;align-items:baseline;padding:50px 0 26px;border-bottom:1px solid var(--rule)}
+  .section-head h2{font-family:"Playfair Display",serif;font-weight:700;font-size:38px;letter-spacing:-.01em}
+  .section-head h2 em{font-style:italic;color:var(--terracotta)}
+
+  .dispatch-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:60px;padding:50px 0;border-bottom:1px solid var(--rule)}
+  .lead-story{display:grid;gap:24px}
+  .lead-image{aspect-ratio:5/4;background:url('https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/608035b9-8853-4bd8-8996-d89948035f55/tempImageCNGToI.jpg?format=1500w') center/cover}
+  .lead-tag{display:flex;gap:12px;align-items:center}
+  .lead-tag .pill{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;background:var(--moss);color:var(--paper);padding:5px 10px}
+  h3.lead-title{font-family:"Playfair Display",serif;font-weight:700;font-size:54px;line-height:1.02;letter-spacing:-.01em}
+  .lead-dek{font-style:italic;font-size:22px;color:var(--ink-soft);max-width:600px}
+  .lead-byline{display:flex;gap:20px;align-items:center;color:var(--ink-soft)}
+  .lead-byline .mono{color:var(--ink-soft)}
+  .pullquote{border-left:3px solid var(--terracotta);padding:6px 0 6px 24px;font-style:italic;font-size:24px;line-height:1.4;color:var(--ink);max-width:580px;margin-top:8px}
+
+  .sidebar-list{display:flex;flex-direction:column;gap:0}
+  .side-story{display:grid;grid-template-columns:108px 1fr;gap:22px;padding:24px 0;border-top:1px solid var(--rule)}
+  .side-story:first-child{border-top:none;padding-top:0}
+  .side-story img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--paper-deep)}
+  .side-story h4{font-family:"Playfair Display",serif;font-weight:700;font-size:22px;line-height:1.18;margin:6px 0 8px;letter-spacing:-.005em}
+  .side-story p{font-size:17px;color:var(--ink-soft);font-style:italic;line-height:1.35}
+  .side-story a:hover h4{color:var(--terracotta)}
+
+  /* FIELD NOTES */
+  .field{padding:64px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+  .field h2{font-family:"Playfair Display",serif;font-weight:700;font-size:46px;line-height:1;letter-spacing:-.01em;margin-bottom:18px}
+  .field h2 em{font-style:italic;color:var(--terracotta)}
+  .field .lede{font-style:italic;font-size:22px;color:var(--ink-soft);line-height:1.4;margin-bottom:26px}
+  .stat-stack{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rule)}
+  .stat{padding:22px 22px 22px 0;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule)}
+  .stat:nth-child(even){border-right:none;padding-left:22px}
+  .stat b{display:block;font-family:"Playfair Display",serif;font-weight:900;font-size:54px;color:var(--terracotta);line-height:1;margin-bottom:8px;letter-spacing:-.02em}
+
+  .field-prose{column-count:2;column-gap:36px;column-rule:1px solid var(--rule)}
+  .field-prose p{margin-bottom:18px;font-size:19px}
+  .field-prose p:first-letter{font-family:"Playfair Display",serif;font-weight:900;font-size:72px;line-height:.85;float:left;padding:6px 10px 0 0;color:var(--terracotta)}
+
+  /* ROUTE */
+  .route{padding:60px 0;border-bottom:1px solid var(--rule)}
+  .route h2{font-family:"Playfair Display",serif;font-size:42px;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
+  .route h2 em{font-style:italic;color:var(--terracotta)}
+  .route-rail{margin-top:34px;display:flex;align-items:flex-start;gap:0;position:relative}
+  .route-line{position:absolute;top:14px;left:8%;right:8%;height:1px;background:repeating-linear-gradient(to right,var(--ink) 0 8px,transparent 8px 14px)}
+  .route-stop{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1}
+  .route-dot{width:18px;height:18px;background:var(--paper);border:2px solid var(--ink);border-radius:50%;margin-bottom:14px}
+  .route-stop.current .route-dot{background:var(--terracotta);border-color:var(--terracotta);box-shadow:0 0 0 6px rgba(184,85,58,.18)}
+  .route-stop b{font-family:"Playfair Display",serif;font-size:22px;font-weight:700;margin-bottom:4px}
+  .route-stop span{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-soft);text-transform:uppercase}
+
+  /* SUBSCRIBE */
+  .subscribe{background:var(--moss);color:var(--paper);padding:80px 0}
+  .sub-row{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+  .subscribe h2{font-family:"Playfair Display",serif;font-weight:700;font-size:60px;line-height:1;letter-spacing:-.015em;margin-bottom:18px}
+  .subscribe h2 em{font-style:italic;color:#e8b76a}
+  .subscribe p{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:22px;color:#d7d0bd;max-width:480px}
+  .sub-form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:30px}
+  .sub-form label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#d7d0bd;display:block;margin-bottom:6px}
+  .sub-form input{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.3);padding:10px 0 12px;color:var(--paper);font-family:"Cormorant Garamond",serif;font-size:20px;margin-bottom:18px;outline:none}
+  .sub-form input:focus{border-bottom-color:#e8b76a}
+  .sub-form button{margin-top:10px;background:#e8b76a;color:var(--moss);border:none;padding:14px 30px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;font-weight:500}
+
+  /* FOOTER */
+  footer{padding:50px 0 70px;color:var(--ink-soft)}
+  .foot-row{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--rule);padding-top:32px}
+  .colophon{max-width:520px;font-size:17px;font-style:italic}
+  .foot-mark{font-family:"Playfair Display",serif;font-weight:900;font-size:64px;line-height:.85;letter-spacing:-.02em;color:var(--ink)}
+
+  @media (max-width:880px){
+    .container{padding:0 24px}
+    h1.hero-title{font-size:64px}
+    .hero-grid,.dispatch-grid,.field,.sub-row{grid-template-columns:1fr;gap:36px}
+    .field-prose{column-count:1}
+    h3.lead-title{font-size:36px}
+    .nav-links{display:none}
+    .route-rail{flex-direction:column;align-items:flex-start;gap:18px}
+    .route-line{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="container masthead-row">
+    <div class="wordmark">Four<span>·</span>Go<span>·</span>East</div>
+    <nav class="nav-links">
+      <a href="#">The Dispatch</a>
+      <a href="#">Field Notes</a>
+      <a href="#">The Route</a>
+      <a href="#">About the Four</a>
+      <a href="#">Subscribe</a>
+    </nav>
+  </div>
+</header>
+
+<div class="issuebar">
+  <div class="container issuebar-row">
+    <span>Issue Nº 03 · <b>May 2026</b></span>
+    <span>Filed from Hội An, Việt Nam</span>
+    <span>One Family · Four Backpacks · 14 Months Out</span>
+  </div>
+</div>
+
+<section class="hero container">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span><span class="mono">A field journal in serial form</span></div>
+      <h1 class="hero-title">Four Go <em>East.</em></h1>
+      <p class="hero-deck">A well-travelled family from the UK, world-schooling two boys, having traded the long retirement for the long road. Dispatches in long form, from wherever we happen to be.</p>
+      <div class="hero-meta">
+        <div><b>11</b><span class="mono">Countries</span></div>
+        <div><b>14</b><span class="mono">Months out</span></div>
+        <div><b>0</b><span class="mono">Return tickets</span></div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-caption mono">Plate I · The family at the start of the road</div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="section-head">
+    <h2>The <em>Dispatch</em></h2>
+    <span class="mono">Three pieces this fortnight</span>
+  </div>
+
+  <div class="dispatch-grid">
+    <article class="lead-story">
+      <a href="#"><div class="lead-image"></div></a>
+      <div class="lead-tag">
+        <span class="pill">Cover Story</span>
+        <span class="mono">14 March 2026 · Hội An</span>
+      </div>
+      <a href="#"><h3 class="lead-title">Tết II: A deep breath before plunging into a new year.</h3></a>
+      <p class="lead-dek">Closed for Tết — kumquat trees lashed to scooters, red envelopes, bunting strung between the Vietnamese flag and the hammer-and-sickle. We watch from the periphery.</p>
+      <p class="pullquote">"It was a pause, a deep breath before plunging into a new year."</p>
+      <div class="lead-byline">
+        <span class="mono">By James Wills</span>
+        <span class="mono">9 min read</span>
+      </div>
+    </article>
+
+    <div class="sidebar-list">
+      <article class="side-story">
+        <a href="#"><img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/1772875491669-IUZEOTYLPR270ZUVXT81/tempImageCYVqSI.gif?format=300w" alt=""></a>
+        <div>
+          <span class="mono">07 Mar · Family</span>
+          <a href="#"><h4>Tết I: E's Recollections</h4></a>
+          <p>"Yeah… I mean, they don't bother me…" — our eldest on fireworks, family, and a city he is beginning to call his.</p>
+        </div>
+      </article>
+
+      <article class="side-story">
+        <a href="#"><img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/1770045741062-Z55YJ12A7IT0C11HA0MH/tempImage3nYkCa.gif?format=300w" alt=""></a>
+        <div>
+          <span class="mono">02 Feb · Field</span>
+          <a href="#"><h4>The Living Tractors of the East</h4></a>
+          <p>Water buffalo lounging in shallow rice-paddy water, dousing themselves with their tails — content and untroubled.</p>
+        </div>
+      </article>
+
+      <article class="side-story">
+        <a href="#"><img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/7cbb86da-9282-489e-825e-79202b883058/tempImage4LJO7g.jpg?format=300w" alt=""></a>
+        <div>
+          <span class="mono">19 Jan · Culture</span>
+          <a href="#"><h4>Ghost Buildings in Hội An</h4></a>
+          <p>Tourism, Western influx, and what happens when the things that make a place itself are diluted by their own success.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="container field">
+  <div>
+    <h2>Field <em>Notes</em></h2>
+    <p class="lede">A quieter, slower ledger — what we are reading, how the boys are getting on, where the road is taking us next.</p>
+    <div class="stat-stack">
+      <div class="stat"><b>34°C</b><span class="mono">Hội An today</span></div>
+      <div class="stat"><b>1,247km</b><span class="mono">Since Bangkok</span></div>
+      <div class="stat"><b>27</b><span class="mono">Dispatches filed</span></div>
+      <div class="stat"><b>Chiang Mai</b><span class="mono">Next on the map</span></div>
+    </div>
+  </div>
+  <div class="field-prose">
+    <p>The morning we left London Heathrow with one-way tickets to Bangkok we had no real plan beyond a vague easterly direction and a quiet conviction that the long, retirement-deferred life of the West was not the only one on offer to us. We told the boys we would show them, rather than tell them — that there is more than one way to live, and more than one way to thrive.</p>
+    <p>Fourteen months in, the questions have changed. The boys are no longer asking when we are going home. They are asking how the buffalo know to come down to the water in the heat of the day. They are asking why the kumquats arrive on scooters tied with rubber bands. They are asking what the writing on the bunting means — and answering, sometimes, before we can.</p>
+    <p>Each piece on this site is a dispatch, a single observation worked over slowly until it becomes a small essay. We publish on Saturdays. We invite you, if any of this is of interest, to read along.</p>
+  </div>
+</section>
+
+<section class="route container">
+  <h2>The <em>Route</em>, so far.</h2>
+  <p class="mono" style="color:var(--ink-soft);margin-top:8px">A slow easterly drift — overland where we can, by air only when we must.</p>
+  <div class="route-rail">
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot"></div><b>London</b><span>Mar '25</span></div>
+    <div class="route-stop"><div class="route-dot"></div><b>Bangkok</b><span>Apr '25</span></div>
+    <div class="route-stop"><div class="route-dot"></div><b>Chiang Mai</b><span>Jun '25</span></div>
+    <div class="route-stop"><div class="route-dot"></div><b>Đà Nẵng</b><span>Oct '25</span></div>
+    <div class="route-stop current"><div class="route-dot"></div><b>Hội An</b><span>Now</span></div>
+    <div class="route-stop"><div class="route-dot"></div><b>Hà Nội</b><span>Soon</span></div>
+    <div class="route-stop"><div class="route-dot"></div><b>?</b><span>Onward</span></div>
+  </div>
+</section>
+
+<section class="subscribe">
+  <div class="container sub-row">
+    <div>
+      <h2>Letters from <em>the road.</em></h2>
+      <p>A short note every other Saturday: one dispatch, one photograph, one thing the boys said this week that we want to remember.</p>
+    </div>
+    <form class="sub-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Welcome aboard';">
+      <label>First name</label><input type="text" placeholder="Your name" required>
+      <label>Email</label><input type="email" placeholder="you@somewhere" required>
+      <button type="submit">Sign me up</button>
+    </form>
+  </div>
+</section>
+
+<footer class="container">
+  <div class="foot-row">
+    <p class="colophon">Four Go East is a field journal kept by J, R, E and e — one family from the UK, two backpacks for the grown-ups and two for the boys, no fixed address and no return ticket. Published in serial form from wherever we happen to be.</p>
+    <div class="foot-mark">FGE</div>
+  </div>
+</footer>
+
+</body>
+</html>
