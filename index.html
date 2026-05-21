@@ -1,367 +1,159 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Four Go East — One family, four backpacks, no return ticket.</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-  /* Page-specific styling */
-  .intro{padding:50px 0;position:relative}
-  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .intro-text p{margin-bottom:18px;font-size:20px;line-height:1.65}
-  .intro-text p:first-child::first-letter{
-    font-family:"Caveat",cursive;font-size:62px;float:left;line-height:.85;
-    padding-right:8px;color:var(--red-stamp);font-weight:700
-  }
-  .signed{
-    margin-top:14px;font-family:"Caveat",cursive;font-size:34px;
-    color:var(--blue-pen);transform:rotate(-2deg);display:inline-block
-  }
-  .polaroid-stack{position:relative;height:520px}
-  .polaroid-stack .polaroid{position:absolute}
-  .polaroid-stack .polaroid img{width:280px;height:280px}
-  .p1{top:10px;left:30px;transform:rotate(-6deg)}
-  .p2{top:60px;left:240px;transform:rotate(4deg);z-index:2}
-  .p3{top:230px;left:90px;transform:rotate(-3deg)}
-
-  /* Meet the four strip */
-  .meet{padding:60px 0;border-top:2px dashed var(--paper-dark)}
-  .meet-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:34px}
-  .meet-card{position:relative;text-align:center}
-  .meet-card .avatar{
-    width:170px;height:170px;margin:0 auto;background:#fff;padding:10px 10px 30px;
-    box-shadow:0 6px 16px rgba(60,40,10,.15);position:relative
-  }
-  .meet-card:nth-child(1) .avatar{transform:rotate(-3deg)}
-  .meet-card:nth-child(2) .avatar{transform:rotate(2deg)}
-  .meet-card:nth-child(3) .avatar{transform:rotate(-1deg)}
-  .meet-card:nth-child(4) .avatar{transform:rotate(3deg)}
-  .meet-card .avatar .face{
-    width:100%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;
-    font-family:"Caveat",cursive;font-size:72px;font-weight:700;color:#fff
-  }
-  .meet-card:nth-child(1) .face{background:linear-gradient(135deg,#3d6a4a,#5a8569)}
-  .meet-card:nth-child(2) .face{background:linear-gradient(135deg,#a93828,#c25a3f)}
-  .meet-card:nth-child(3) .face{background:linear-gradient(135deg,#23437a,#3e6aaa)}
-  .meet-card:nth-child(4) .face{background:linear-gradient(135deg,#a07a2c,#c89a4a)}
-  .meet-card h4{font-family:"Caveat",cursive;font-size:30px;margin-top:14px;color:var(--ink)}
-  .meet-card p{font-family:"Crimson Pro",serif;font-style:italic;font-size:15px;color:var(--ink-soft);margin-top:4px;max-width:200px;margin-left:auto;margin-right:auto;line-height:1.4}
-
-  /* Entries grid */
-  .entries{padding:80px 0 60px;border-top:2px dashed var(--paper-dark)}
-  .entry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:50px 30px}
-  .entry-grid .entry:nth-child(6n+1){transform:rotate(-2deg)}
-  .entry-grid .entry:nth-child(6n+2){transform:rotate(1.5deg)}
-  .entry-grid .entry:nth-child(6n+3){transform:rotate(-1deg)}
-  .entry-grid .entry:nth-child(6n+4){transform:rotate(1deg)}
-  .entry-grid .entry:nth-child(6n+5){transform:rotate(-2deg)}
-  .entry-grid .entry:nth-child(6n){transform:rotate(2deg)}
-  .more-link{text-align:center;margin-top:50px}
-  .more-link a{
-    font-family:"Caveat",cursive;font-size:32px;color:var(--blue-pen);
-    border-bottom:2px dashed var(--blue-pen);padding-bottom:2px
-  }
-
-  /* Categories / chips */
-  .categories{padding:60px 0;border-top:2px dashed var(--paper-dark);text-align:center}
-  .categories h3{font-family:"Caveat",cursive;font-size:50px;margin-bottom:14px}
-  .categories h3 em{color:var(--red-stamp);font-style:italic}
-  .categories .lede{font-family:"Crimson Pro",serif;font-style:italic;color:var(--ink-soft);font-size:18px;margin-bottom:30px}
-  .categories .chips{justify-content:center;max-width:880px;margin:0 auto}
-
-  /* Quote band */
-  .quoteband{padding:90px 0;border-top:2px dashed var(--paper-dark);text-align:center}
-  .quoteband blockquote{
-    font-family:"Caveat",cursive;font-size:56px;line-height:1.15;max-width:900px;
-    margin:0 auto;color:var(--ink);position:relative;padding:0 60px
-  }
-  .quoteband blockquote::before,
-  .quoteband blockquote::after{
-    content:"\201C";position:absolute;font-size:120px;color:var(--red-stamp);
-    opacity:.35;font-family:"Caveat",cursive;line-height:1
-  }
-  .quoteband blockquote::before{top:-20px;left:0}
-  .quoteband blockquote::after{content:"\201D";bottom:-60px;right:0}
-  .quoteband cite{
-    display:block;margin-top:50px;font-family:"Special Elite",monospace;
-    font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-style:normal
-  }
-
-  /* Mini-map */
-  .map-section{padding:90px 0;border-top:2px dashed var(--paper-dark)}
-  .map-section h3{font-family:"Caveat",cursive;font-size:54px;text-align:center;margin-bottom:6px}
-  .map-section h3 em{color:var(--red-stamp);font-style:italic}
-  .map-section .subhead{text-align:center;font-family:"Special Elite",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:40px}
-  .route-svg{display:block;margin:0 auto;width:100%;max-width:980px;height:auto}
-
-  .stamps{padding:60px 0 90px;text-align:center;border-top:2px dashed var(--paper-dark)}
-  .stamps h3{font-family:"Caveat",cursive;font-size:46px;margin-bottom:30px}
-  .stamps h3 em{color:var(--red-stamp);font-style:italic}
-
-  @media (max-width:880px){
-    .intro-grid{grid-template-columns:1fr;gap:30px}
-    .polaroid-stack{height:auto;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-    .polaroid-stack .polaroid{position:relative;top:auto;left:auto}
-    .polaroid-stack .polaroid img{width:200px;height:200px}
-    .entry-grid{grid-template-columns:1fr;gap:50px}
-    .meet-grid{grid-template-columns:1fr 1fr;gap:30px}
-    .quoteband blockquote{font-size:34px;padding:0 30px}
-  }
-</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9}
+    p.p5 {margin: 0.0px 0.0px 18.0px 0.0px; font: 20.0px Times; -webkit-text-stroke: #000000}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 34.0px 'Helvetica Neue'; -webkit-text-stroke: #000000}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 72.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #ffffff}
+    p.p10 {margin: 0.0px 88.5px 15.0px 88.5px; text-align: center; text-indent: -88.5px; font: 15.0px 'Helvetica Neue'; -webkit-text-stroke: #000000}
+    p.p12 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 32.0px 'Helvetica Neue'; -webkit-text-stroke: #000000}
+    p.p15 {margin: 0.0px 0.0px 30.0px 0.0px; text-align: center; font: 18.0px 'Helvetica Neue'; -webkit-text-stroke: #000000}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9}
+    p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px 'Helvetica Neue'; -webkit-text-stroke: #000000}
+    p.p20 {margin: 0.0px 0.0px 0.0px 0.0px; font: 22.0px 'Helvetica Neue'; -webkit-text-stroke: #000000}
+    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px 'Helvetica Neue'; -webkit-text-stroke: #000000}
+    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 26.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9}
+    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p25 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85)}
+    span.s1 {font-kerning: none}
+    span.s2 {text-decoration: underline ; font-kerning: none}
+    span.s3 {font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
+    span.s4 {text-decoration: underline ; font-kerning: none; -webkit-text-stroke: 0px #0000e9}
+    span.s5 {font: 18.0px '.Times Fallback'; font-kerning: none}
+    span.s6 {font: 20.0px Times; text-decoration: underline ; font-kerning: none}
+    span.s7 {font: 20.0px 'Times New Roman'; text-decoration: underline ; font-kerning: none}
+    span.s8 {font: 34.0px 'Zapf Dingbats'; font-kerning: none}
+    span.s9 {font: 12.0px 'Zapf Dingbats'; font-kerning: none}
+    span.s10 {font: 14.0px '.Times Fallback'; font-kerning: none}
+    span.s11 {font-kerning: none; color: #0000e9; -webkit-text-stroke: 0px #0000e9}
+    span.s12 {font: 12.0px 'Times New Roman'; text-decoration: underline ; font-kerning: none}
+    span.s13 {font: 32.0px 'Helvetica Neue'; text-decoration: underline ; font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
+    span.s14 {font: 54.0px 'Zapf Dingbats'; font-kerning: none}
+    span.s15 {font: 26.0px 'Times New Roman'; text-decoration: underline ; font-kerning: none}
+    span.s16 {font-kerning: none; background-color: #b3b3b3}
+  </style>
 </head>
 <body>
-
-<nav class="site">
-  <div class="brand">
-    <span class="brand-stamp">FGE · '26</span>
-    <h1>Four Go East</h1>
-  </div>
-  <div class="navlinks">
-    <a href="index.html" class="active">Home</a>
-    <a href="journal.html">Journal</a>
-    <a href="about.html">The Four</a>
-    <a href="map.html">The Map</a>
-  </div>
-</nav>
-
-<div class="container">
-
-  <header class="pagetop">
-    <div class="dateline">Vol. III · 18 May 2026 · Filed from Hội An, Việt Nam</div>
-    <div class="title-block">
-      <span class="tape t1"></span>
-      <span class="tape t2"></span>
-      <h2 class="titlemark">Four go <span class="ink">east</span> <span class="arrow">→</span></h2>
-      <div class="sub">one family · four backpacks · no return ticket</div>
-    </div>
-  </header>
-
-  <section class="intro">
-    <div class="intro-grid">
-      <div class="intro-text">
-        <p>We are J (Dad), R (Mum), E (the eldest) and e (yes, two e's — and he's the boss). A well-travelled family from the UK who recognised the limits that mainstream education has for our two neurodiverse boys, sold most of what we owned, strapped on four backpacks and booked one-way tickets from Heathrow to Bangkok.</p>
-        <p>We have backpacked around India, Nepal, Thailand, Malaysia and Vietnam — and visited Morocco, Australia, Oman, the USA, France and Sweden. The West's bargain — work until you retire, then live the life you wanted — assumes a perfect health and a surviving pension we are not prepared to bet our family on.</p>
-        <p>So we are showing the boys, rather than telling them, that there is more than one way to live. <a href="about.html" style="color:var(--blue-pen);border-bottom:1.5px solid var(--blue-pen)">Read more about us →</a></p>
-        <div class="signed">— J, R, E & e ✻</div>
-      </div>
-
-      <div class="polaroid-stack">
-        <div class="polaroid p1">
-          <span class="pin"></span>
-          <img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/385e1f09-b046-4b74-a282-10d3c8ec09e6/tempImagewHrZus.jpg?format=500w" alt="">
-          <div class="cap">Tết bunting, Hội An</div>
-        </div>
-        <div class="polaroid p2">
-          <img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/4a81ef77-bd20-4ea7-9a70-683d6c49b69d/tempImageTFsER3.jpg?format=500w" alt="">
-          <div class="cap">All four of us, day one</div>
-        </div>
-        <div class="polaroid p3">
-          <img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/7cbb86da-9282-489e-825e-79202b883058/tempImage4LJO7g.jpg?format=500w" alt="">
-          <div class="cap">Kumquat trees on a scooter ✻</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="meet">
-    <div class="section-label">
-      <h3>Meet the <em>four</em></h3>
-      <span class="doodle"></span>
-    </div>
-    <div class="meet-grid">
-      <div class="meet-card">
-        <div class="avatar"><div class="face">J</div></div>
-        <h4>J — Dad</h4>
-        <p>Writer-in-residence at this travelling household. Coffee, longhand notes, scooters with two boys on the back.</p>
-      </div>
-      <div class="meet-card">
-        <div class="avatar"><div class="face">R</div></div>
-        <h4>R — Mum</h4>
-        <p>Plans the routes, finds the rooms, keeps four humans (and one passport file) on the road.</p>
-      </div>
-      <div class="meet-card">
-        <div class="avatar"><div class="face">E</div></div>
-        <h4>E — Eldest, 12</h4>
-        <p>Reader, swimmer, asker of impossible questions. Currently writing a book about water buffalo.</p>
-      </div>
-      <div class="meet-card">
-        <div class="avatar"><div class="face">e</div></div>
-        <h4>e — The Boss, 10</h4>
-        <p>Two e's, one chief navigator. Maker of friends in any language, particularly with the bánh mì lady on the corner.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="entries">
-    <div class="section-label">
-      <h3>Pages from the <em>journal</em> →</h3>
-      <span class="doodle"></span>
-    </div>
-
-    <div class="entry-grid">
-      <article class="entry">
-        <span class="tape-strip"></span>
-        <span class="stamp-tag">Hội An</span>
-        <a href="post.html"><img class="entry-img" src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/608035b9-8853-4bd8-8996-d89948035f55/tempImageCNGToI.jpg?format=750w" alt=""></a>
-        <div class="entry-meta"><span>14 · 03 · 26</span><span>9 min</span></div>
-        <h4>Tết II: <em>Tết</em></h4>
-        <p>A deep breath before plunging into a new year — red envelopes, kumquats and bunting between the flag and the hammer-and-sickle.</p>
-        <a href="post.html" class="read-more">read on →</a>
-      </article>
-
-      <article class="entry">
-        <span class="tape-strip" style="background:var(--tape-blue)"></span>
-        <span class="stamp-tag" style="border-color:var(--blue-pen);color:var(--blue-pen)">Family</span>
-        <a href="post.html"><img class="entry-img" src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/1772875491669-IUZEOTYLPR270ZUVXT81/tempImageCYVqSI.gif?format=600w" alt=""></a>
-        <div class="entry-meta"><span>07 · 03 · 26</span><span>6 min</span></div>
-        <h4>Tết I: <em>E's recollections</em></h4>
-        <p>"Yeah… I mean, they don't bother me…" — the eldest, on fireworks and a city he is beginning to call his.</p>
-        <a href="post.html" class="read-more">read on →</a>
-      </article>
-
-      <article class="entry">
-        <span class="tape-strip"></span>
-        <span class="stamp-tag">Field</span>
-        <a href="post.html"><img class="entry-img" src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/1770045741062-Z55YJ12A7IT0C11HA0MH/tempImage3nYkCa.gif?format=600w" alt=""></a>
-        <div class="entry-meta"><span>02 · 02 · 26</span><span>7 min</span></div>
-        <h4>The living <em>tractors</em></h4>
-        <p>Water buffalo in shallow paddy water, dousing themselves with their tails. Content and untroubled.</p>
-        <a href="post.html" class="read-more">read on →</a>
-      </article>
-
-      <article class="entry">
-        <span class="tape-strip" style="background:var(--tape-pink)"></span>
-        <span class="stamp-tag" style="border-color:var(--red-stamp);color:var(--red-stamp)">Culture</span>
-        <a href="post.html"><img class="entry-img" src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/7cbb86da-9282-489e-825e-79202b883058/tempImage4LJO7g.jpg?format=600w" alt=""></a>
-        <div class="entry-meta"><span>19 · 01 · 26</span><span>8 min</span></div>
-        <h4>Ghost buildings in <em>Hội An</em></h4>
-        <p>Tourism, Western influx, and what happens when the things that make a place itself are diluted by their own success.</p>
-        <a href="post.html" class="read-more">read on →</a>
-      </article>
-
-      <article class="entry">
-        <span class="tape-strip"></span>
-        <span class="stamp-tag">Local Life</span>
-        <a href="post.html"><img class="entry-img" src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/385e1f09-b046-4b74-a282-10d3c8ec09e6/tempImagewHrZus.jpg?format=600w" alt=""></a>
-        <div class="entry-meta"><span>12 · 01 · 26</span><span>5 min</span></div>
-        <h4>The fruit man <em>and the rice festival</em></h4>
-        <p>Hội An local life, seen through the steady rhythms of a man who knows every street by its produce.</p>
-        <a href="post.html" class="read-more">read on →</a>
-      </article>
-
-      <article class="entry">
-        <span class="tape-strip" style="background:var(--tape-blue)"></span>
-        <span class="stamp-tag" style="border-color:var(--blue-pen);color:var(--blue-pen)">Schooling</span>
-        <a href="post.html"><img class="entry-img" src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/4a81ef77-bd20-4ea7-9a70-683d6c49b69d/tempImageTFsER3.jpg?format=600w" alt=""></a>
-        <div class="entry-meta"><span>28 · 12 · 25</span><span>11 min</span></div>
-        <h4>World-schooling in <em>Vietnam</em></h4>
-        <p>How we educate two neurodiverse boys through travel — the days, the books, and the questions that don't have textbook answers.</p>
-        <a href="post.html" class="read-more">read on →</a>
-      </article>
-    </div>
-
-    <div class="more-link"><a href="journal.html">see every page in the journal →</a></div>
-  </section>
-
-  <section class="categories">
-    <h3>Wander by <em>theme</em></h3>
-    <p class="lede">A few of the threads that keep coming up in the writing.</p>
-    <div class="chips">
-      <a class="chip" href="journal.html">Worldschooling</a>
-      <a class="chip" href="journal.html">Slow Travel</a>
-      <a class="chip" href="journal.html">Vietnam</a>
-      <a class="chip" href="journal.html">Hội An</a>
-      <a class="chip" href="journal.html">Expat Life</a>
-      <a class="chip" href="journal.html">Family</a>
-      <a class="chip" href="journal.html">Tết</a>
-      <a class="chip" href="journal.html">Travel Writing</a>
-      <a class="chip" href="journal.html">Neurodiverse Travel</a>
-      <a class="chip" href="journal.html">Food</a>
-      <a class="chip" href="journal.html">Cultural Observations</a>
-      <a class="chip" href="journal.html">The Boys</a>
-    </div>
-  </section>
-
-  <section class="quoteband">
-    <blockquote>There is more than one way to live, <em style="color:var(--red-stamp)">and more than one way to thrive.</em></blockquote>
-    <cite>— From the about page</cite>
-  </section>
-
-  <section class="map-section">
-    <h3>The <em>route</em>, so far ✻</h3>
-    <div class="subhead">London → Bangkok → Chiang Mai → Đà Nẵng → Hội An → ??</div>
-    <svg class="route-svg" viewBox="0 0 980 280" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 60,180 Q 200,40 340,170 T 620,150 T 900,90" stroke="#a93828" stroke-width="2.5" fill="none" stroke-dasharray="6 7"/>
-      <g font-family="Caveat,cursive" font-size="22" fill="#2a241a" text-anchor="middle">
-        <g transform="translate(60,180)"><circle r="9" fill="#fff" stroke="#2a241a" stroke-width="2"/><text y="-18">London</text><text y="36" font-family="Special Elite,monospace" font-size="10" fill="#5a4f3d" letter-spacing="1.5">MAR '25</text></g>
-        <g transform="translate(220,90)"><circle r="9" fill="#fff" stroke="#2a241a" stroke-width="2"/><text y="-18">Bangkok</text><text y="36" font-family="Special Elite,monospace" font-size="10" fill="#5a4f3d" letter-spacing="1.5">APR '25</text></g>
-        <g transform="translate(380,180)"><circle r="9" fill="#fff" stroke="#2a241a" stroke-width="2"/><text y="-18">Chiang Mai</text><text y="36" font-family="Special Elite,monospace" font-size="10" fill="#5a4f3d" letter-spacing="1.5">JUN '25</text></g>
-        <g transform="translate(560,150)"><circle r="9" fill="#fff" stroke="#2a241a" stroke-width="2"/><text y="-18">Đà Nẵng</text><text y="36" font-family="Special Elite,monospace" font-size="10" fill="#5a4f3d" letter-spacing="1.5">OCT '25</text></g>
-        <g transform="translate(740,150)"><circle r="12" fill="#a93828" stroke="#a93828" stroke-width="2"/><circle r="20" fill="none" stroke="#a93828" stroke-width="1.5" opacity="0.4"/><text y="-26" fill="#a93828" font-weight="700">Hội An</text><text y="40" font-family="Special Elite,monospace" font-size="10" fill="#a93828" letter-spacing="1.5">NOW HERE</text></g>
-        <g transform="translate(900,90)"><text y="-18" fill="#3d6a4a">?</text><text y="36" font-family="Special Elite,monospace" font-size="10" fill="#3d6a4a" letter-spacing="1.5">ONWARD</text><path d="M -10,-4 L 10,-4 L 5,-10 M 10,-4 L 5,2" stroke="#3d6a4a" stroke-width="2" fill="none"/></g>
-      </g>
-    </svg>
-    <div style="text-align:center;margin-top:30px"><a href="map.html" class="read-more" style="font-size:26px">see the full route →</a></div>
-  </section>
-
-  <section class="stamps">
-    <h3>Recent <em>stamps</em></h3>
-    <div class="stamp-grid">
-      <div class="stamp"><span><b>UK</b>departure<br>HEATHROW</span></div>
-      <div class="stamp"><span><b>TH</b>Bangkok<br>BKK · '25</span></div>
-      <div class="stamp"><span><b>TH</b>Chiang Mai<br>CNX · '25</span></div>
-      <div class="stamp"><span><b>VN</b>Đà Nẵng<br>DAD · '25</span></div>
-      <div class="stamp"><span><b>VN</b>Hội An<br>currently</span></div>
-      <div class="stamp"><span><b>MY</b>Penang<br>2024</span></div>
-      <div class="stamp"><span><b>IN</b>Udaipur<br>2023</span></div>
-      <div class="stamp"><span><b>NP</b>Pokhara<br>2023</span></div>
-    </div>
-  </section>
-
-  <section class="postcard">
-    <div class="pc-wrap">
-      <div class="pc-front">
-        <h3>Send me a <em>postcard?</em></h3>
-        <p>A short letter every other Saturday — one dispatch, one photograph, and one daft thing the boys said this week.</p>
-        <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ on its way';">
-          <input type="text" placeholder="Your name…" required>
-          <input type="email" placeholder="Where shall we send it…" required>
-          <button type="submit">Pop in the post →</button>
-        </form>
-      </div>
-      <div class="pc-back">
-        <div class="pc-stamp-box">
-          <span>FGE</span>
-          'VIET NAM'<br>POSTAGE PAID
-        </div>
-        <div class="pc-postmark">HOI AN<br>· 18 · 05 · 26 ·<br>VIETNAM</div>
-        <div class="pc-address">
-          <div>To: a friend</div>
-          <div>of the road</div>
-          <div>somewhere warm</div>
-          <div>the world ✻</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<footer class="site">
-  <p>Made with sticky-tape and slow internet — somewhere east of London ✻</p>
-  <div class="foot-links">
-    <a href="index.html">Home</a>
-    <a href="journal.html">Journal</a>
-    <a href="about.html">The Four</a>
-    <a href="map.html">The Map</a>
-    <a href="mailto:hello@fourgoeast.com">hello@fourgoeast.com</a>
-  </div>
-  <div class="typed">© 2026 four humans, four backpacks · hello@fourgoeast.com</div>
-</footer>
-
+<p class="p1"><span class="s1">FGE · '26</span></p>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Four Go East</b></span></h1>
+<p class="p3"><span class="s2"><a href="file:///Users/James/Documents/GitHub/fourgoeast/index.html">Home</a></span><span class="s3"> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">Journal</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/about.html"><span class="s4">The Four</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/map.html"><span class="s4">The Map</span></a></span></p>
+<p class="p1"><span class="s1">Vol. III · 18 May 2026 · Filed from Hội An, Việt Nam</span></p>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Four go east </b></span><span class="s5"><b>→</b><b></b></span></h2>
+<p class="p1"><span class="s1">one family · four backpacks · no return ticket</span></p>
+<p class="p5"><span class="s1">We are J (Dad), R (Mum), E (the eldest) and e (yes, two e's — and he's the boss). A well-travelled family from the UK who recognised the limits that mainstream education has for our two neurodiverse boys, sold most of what we owned, strapped on four backpacks and booked one-way tickets from Heathrow to Bangkok.</span></p>
+<p class="p5"><span class="s1">We have backpacked around India, Nepal, Thailand, Malaysia and Vietnam — and visited Morocco, Australia, Oman, the USA, France and Sweden. The West's bargain — work until you retire, then live the life you wanted — assumes a perfect health and a surviving pension we are not prepared to bet our family on.</span></p>
+<p class="p5"><span class="s1">So we are showing the boys, rather than telling them, that there is more than one way to live. <a href="file:///Users/James/Documents/GitHub/fourgoeast/about.html"><span class="s6">Read more about us </span><span class="s7">→</span></a></span></p>
+<p class="p6"><span class="s1">— J, R, E &amp; e </span><span class="s8">✻</span></p>
+<p class="p1"><span class="s1"><img src="file:///tempImagewHrZus.jpg.webp" alt="tempImagewHrZus.jpg.webp"></span></p>
+<p class="p1"><span class="s1">Tết bunting, Hội An</span></p>
+<p class="p1"><span class="s1"><img src="file:///tempImageTFsER3.jpg.webp" alt="tempImageTFsER3.jpg.webp"></span></p>
+<p class="p1"><span class="s1">All four of us, day one</span></p>
+<p class="p1"><span class="s1"><img src="file:///tempImage4LJO7g.jpg.webp" alt="tempImage4LJO7g.jpg.webp"></span></p>
+<p class="p1"><span class="s1">Kumquat trees on a scooter </span><span class="s9">✻</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Meet the </b><b><i>four</i></b><b><i></i></b></span></h3>
+<p class="p8"><span class="s1">J</span></p>
+<h4 style="margin: 0.0px 0.0px 39.9px 0.0px; text-align: center; font: 30.0px 'Helvetica Neue'; -webkit-text-stroke: #000000"><span class="s1">J — Dad</span></h4>
+<p class="p10"><span class="s1">Writer-in-residence at this travelling household. Coffee, longhand notes, scooters with two boys on the back.</span></p>
+<p class="p8"><span class="s1">R</span></p>
+<h4 style="margin: 0.0px 0.0px 39.9px 0.0px; text-align: center; font: 30.0px 'Helvetica Neue'; -webkit-text-stroke: #000000"><span class="s1">R — Mum</span></h4>
+<p class="p10"><span class="s1">Plans the routes, finds the rooms, keeps four humans (and one passport file) on the road.</span></p>
+<p class="p8"><span class="s1">E</span></p>
+<h4 style="margin: 0.0px 0.0px 39.9px 0.0px; text-align: center; font: 30.0px 'Helvetica Neue'; -webkit-text-stroke: #000000"><span class="s1">E — Eldest, 12</span></h4>
+<p class="p10"><span class="s1">Reader, swimmer, asker of impossible questions. Currently writing a book about water buffalo.</span></p>
+<p class="p8"><span class="s1">e</span></p>
+<h4 style="margin: 0.0px 0.0px 39.9px 0.0px; text-align: center; font: 30.0px 'Helvetica Neue'; -webkit-text-stroke: #000000"><span class="s1">e — The Boss, 10</span></h4>
+<p class="p10"><span class="s1">Two e's, one chief navigator. Maker of friends in any language, particularly with the bánh mì lady on the corner.</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Pages from the </b><b><i>journal</i></b><b> </b></span><span class="s10"><b>→</b><b></b></span></h3>
+<p class="p1"><span class="s1">Hội An <a href="file:///Users/James/Documents/GitHub/fourgoeast/post.html"><span class="s11"><img src="file:///tempImageCNGToI.jpg.webp" alt="tempImageCNGToI.jpg.webp"></span></a></span></p>
+<p class="p1"><span class="s1">14 · 03 · 269 min</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Tết II: </b><b><i>Tết</i></b><b><i></i></b></span></h4>
+<p class="p12"><span class="s1">A deep breath before plunging into a new year — red envelopes, kumquats and bunting between the flag and the hammer-and-sickle.</span></p>
+<p class="p3"><span class="s2"><a href="file:///Users/James/Documents/GitHub/fourgoeast/post.html">read on <span class="s12">→</span></a></span></p>
+<p class="p1"><span class="s1">Family <a href="file:///Users/James/Documents/GitHub/fourgoeast/post.html"><span class="s11"><img src="file:///tempImageCYVqSI.gif" alt="tempImageCYVqSI.gif"></span></a></span></p>
+<p class="p1"><span class="s1">07 · 03 · 266 min</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Tết I: </b><b><i>E's recollections</i></b><b><i></i></b></span></h4>
+<p class="p12"><span class="s1">"Yeah… I mean, they don't bother me…" — the eldest, on fireworks and a city he is beginning to call his.</span></p>
+<p class="p3"><span class="s2"><a href="file:///Users/James/Documents/GitHub/fourgoeast/post.html">read on <span class="s12">→</span></a></span></p>
+<p class="p1"><span class="s1">Field <a href="file:///Users/James/Documents/GitHub/fourgoeast/post.html"><span class="s11"><img src="file:///tempImage3nYkCa.gif" alt="tempImage3nYkCa.gif"></span></a></span></p>
+<p class="p1"><span class="s1">02 · 02 · 267 min</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>The living </b><b><i>tractors</i></b><b><i></i></b></span></h4>
+<p class="p12"><span class="s1">Water buffalo in shallow paddy water, dousing themselves with their tails. Content and untroubled.</span></p>
+<p class="p3"><span class="s2"><a href="file:///Users/James/Documents/GitHub/fourgoeast/post.html">read on <span class="s12">→</span></a></span></p>
+<p class="p1"><span class="s1">Culture <a href="file:///Users/James/Documents/GitHub/fourgoeast/post.html"><span class="s11"><img src="file:///tempImage4LJO7g.jpg_1.webp" alt="tempImage4LJO7g.jpg_1.webp"></span></a></span></p>
+<p class="p1"><span class="s1">19 · 01 · 268 min</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Ghost buildings in </b><b><i>Hội An</i></b><b><i></i></b></span></h4>
+<p class="p12"><span class="s1">Tourism, Western influx, and what happens when the things that make a place itself are diluted by their own success.</span></p>
+<p class="p3"><span class="s2"><a href="file:///Users/James/Documents/GitHub/fourgoeast/post.html">read on <span class="s12">→</span></a></span></p>
+<p class="p1"><span class="s1">Local Life <a href="file:///Users/James/Documents/GitHub/fourgoeast/post.html"><span class="s11"><img src="file:///tempImagewHrZus.jpg_1.webp" alt="tempImagewHrZus.jpg_1.webp"></span></a></span></p>
+<p class="p1"><span class="s1">12 · 01 · 265 min</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>The fruit man </b><b><i>and the rice festival</i></b><b><i></i></b></span></h4>
+<p class="p12"><span class="s1">Hội An local life, seen through the steady rhythms of a man who knows every street by its produce.</span></p>
+<p class="p3"><span class="s2"><a href="file:///Users/James/Documents/GitHub/fourgoeast/post.html">read on <span class="s12">→</span></a></span></p>
+<p class="p1"><span class="s1">Schooling <a href="file:///Users/James/Documents/GitHub/fourgoeast/post.html"><span class="s11"><img src="file:///tempImageTFsER3.jpg_1.webp" alt="tempImageTFsER3.jpg_1.webp"></span></a></span></p>
+<p class="p1"><span class="s1">28 · 12 · 2511 min</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>World-schooling in </b><b><i>Vietnam</i></b><b><i></i></b></span></h4>
+<p class="p12"><span class="s1">How we educate two neurodiverse boys through travel — the days, the books, and the questions that don't have textbook answers.</span></p>
+<p class="p3"><span class="s2"><a href="file:///Users/James/Documents/GitHub/fourgoeast/post.html">read on <span class="s12">→</span></a></span></p>
+<p class="p13"><span class="s2"><a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html">see every page in the journal →<span class="s13"></span></a></span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; text-align: center; font: 50.0px 'Helvetica Neue'; -webkit-text-stroke: #000000"><span class="s1">Wander by theme</span></h3>
+<p class="p15"><span class="s1">A few of the threads that keep coming up in the writing.</span></p>
+<p class="p16"><span class="s2"><a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html">Worldschooling</a></span><span class="s3"> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">Slow Travel</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">Vietnam</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">Hội An</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">Expat Life</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">Family</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">Tết</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">Travel Writing</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">Neurodiverse Travel</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">Food</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">Cultural Observations</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">The Boys</span></a></span></p>
+<blockquote style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 34.0px 'Helvetica Neue'; -webkit-text-stroke: #000000"><span class="s1">There is more than one way to live, and more than one way to thrive.</span></blockquote>
+<p class="p18"><span class="s1">— FROM THE ABOUT PAGE</span></p>
+<h3 style="margin: 0.0px 0.0px 6.0px 0.0px; text-align: center; font: 54.0px 'Helvetica Neue'; -webkit-text-stroke: #000000"><span class="s1">The route, so far </span><span class="s14">✻</span></h3>
+<p class="p18"><span class="s1">LONDON → BANGKOK → CHIANG MAI → ĐÀ NẴNG → HỘI AN → ??</span></p>
+<p class="p20"><span class="s1">London</span></p>
+<p class="p21"><span class="s1">MAR '25</span></p>
+<p class="p20"><span class="s1">Bangkok</span></p>
+<p class="p21"><span class="s1">APR '25</span></p>
+<p class="p20"><span class="s1">Chiang Mai</span></p>
+<p class="p21"><span class="s1">JUN '25</span></p>
+<p class="p20"><span class="s1">Đà Nẵng</span></p>
+<p class="p21"><span class="s1">OCT '25</span></p>
+<p class="p20"><span class="s1">Hội An</span></p>
+<p class="p21"><span class="s1">NOW HERE</span></p>
+<p class="p20"><span class="s1">?</span></p>
+<p class="p21"><span class="s1">ONWARD</span></p>
+<p class="p22"><span class="s2"><a href="file:///Users/James/Documents/GitHub/fourgoeast/map.html">see the full route <span class="s15">→</span></a></span></p>
+<h3 style="margin: 0.0px 0.0px 30.0px 0.0px; text-align: center; font: 46.0px 'Helvetica Neue'; -webkit-text-stroke: #000000"><span class="s1">Recent stamps</span></h3>
+<p class="p24"><span class="s1"><b>UK</b>departure</span></p>
+<p class="p24"><span class="s1">HEATHROW</span></p>
+<p class="p24"><span class="s1"><b>TH</b>Bangkok</span></p>
+<p class="p24"><span class="s1">BKK · '25</span></p>
+<p class="p24"><span class="s1"><b>TH</b>Chiang Mai</span></p>
+<p class="p24"><span class="s1">CNX · '25</span></p>
+<p class="p24"><span class="s1"><b>VN</b>Đà Nẵng</span></p>
+<p class="p24"><span class="s1">DAD · '25</span></p>
+<p class="p24"><span class="s1"><b>VN</b>Hội An</span></p>
+<p class="p24"><span class="s1">currently</span></p>
+<p class="p24"><span class="s1"><b>MY</b>Penang</span></p>
+<p class="p24"><span class="s1">2024</span></p>
+<p class="p24"><span class="s1"><b>IN</b>Udaipur</span></p>
+<p class="p24"><span class="s1">2023</span></p>
+<p class="p24"><span class="s1"><b>NP</b>Pokhara</span></p>
+<p class="p24"><span class="s1">2023</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Send me a </b><b><i>postcard?</i></b><b><i></i></b></span></h3>
+<p class="p12"><span class="s1">A short letter every other Saturday — one dispatch, one photograph, and one daft thing the boys said this week.</span></p>
+<p class="p25"><span class="s16">Pop in the post →</span></p>
+<p class="p1"><span class="s1">FGE 'VIET NAM'</span></p>
+<p class="p1"><span class="s1">POSTAGE PAID</span></p>
+<p class="p1"><span class="s1">HOI AN</span></p>
+<p class="p1"><span class="s1">· 18 · 05 · 26 ·</span></p>
+<p class="p1"><span class="s1">VIETNAM</span></p>
+<p class="p1"><span class="s1">To: a friend</span></p>
+<p class="p1"><span class="s1">of the road</span></p>
+<p class="p1"><span class="s1">somewhere warm</span></p>
+<p class="p1"><span class="s1">the world </span><span class="s9">✻</span></p>
+<p class="p12"><span class="s1">Made with sticky-tape and slow internet — somewhere east of London </span><span class="s9">✻</span></p>
+<p class="p3"><span class="s2"><a href="file:///Users/James/Documents/GitHub/fourgoeast/index.html">Home</a></span><span class="s3"> <a href="file:///Users/James/Documents/GitHub/fourgoeast/journal.html"><span class="s4">Journal</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/about.html"><span class="s4">The Four</span></a> <a href="file:///Users/James/Documents/GitHub/fourgoeast/map.html"><span class="s4">The Map</span></a> <a href="mailto:hello@fourgoeast.com"><span class="s4">hello@fourgoeast.com</span></a></span></p>
+<p class="p1"><span class="s1">© 2026 four humans, four backpacks · hello@fourgoeast.com</span></p>
 </body>
 </html>
