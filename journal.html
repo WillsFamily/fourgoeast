@@ -62,6 +62,11 @@
   .pagination .page:not(.active):hover{
     background:rgba(255,255,255,.5);transform:rotate(2deg);border-color:var(--ink)
   }
+    .pagination .page{cursor:pointer}
+  .pagination .nav-link{
+    font-family:"Caveat",cursive;font-size:24px;color:var(--blue-pen);
+    border-bottom:2px dashed var(--blue-pen);padding-bottom:2px;cursor:pointer
+  }
   .pagination .nav-link{
     font-family:"Caveat",cursive;font-size:24px;color:var(--blue-pen);
     border-bottom:2px dashed var(--blue-pen);padding-bottom:2px
@@ -324,5 +329,51 @@
   <div class="typed">© 2026 four humans, four backpacks · hello@fourgoeast.com</div>
 </footer>
 
+<script>
+(function(){
+  const POSTS_PER_PAGE = 6;
+  const entries = Array.from(document.querySelectorAll('.archive .entry'));
+  const totalPages = Math.ceil(entries.length / POSTS_PER_PAGE);
+  const pagination = document.querySelector('.pagination');
+  const pageButtons = Array.from(pagination.querySelectorAll('.page'));
+  const navLinks = Array.from(pagination.querySelectorAll('.nav-link'));
+  const newerBtn = navLinks[0];
+  const olderBtn = navLinks[navLinks.length - 1];
+  let currentPage = 1;
+  let firstLoad = true;
+
+  function showPage(page) {
+    currentPage = page;
+    entries.forEach(e => { e.style.display = ''; });
+    document.querySelectorAll('.archive .year-marker, .archive .entry-grid')
+      .forEach(el => { el.style.display = ''; });
+    entries.forEach((entry, i) => {
+      if (Math.floor(i / POSTS_PER_PAGE) + 1 !== page) entry.style.display = 'none';
+    });
+    document.querySelectorAll('.archive .year-marker').forEach(marker => {
+      let grid = marker.nextElementSibling;
+      while (grid && !grid.classList.contains('entry-grid')) grid = grid.nextElementSibling;
+      if (grid) {
+        const hasVisible = Array.from(grid.querySelectorAll('.entry')).some(e => e.style.display !== 'none');
+        if (!hasVisible) { marker.style.display = 'none'; grid.style.display = 'none'; }
+      }
+    });
+    pageButtons.forEach((btn, i) => btn.classList.toggle('active', i + 1 === page));
+    const isFirst = page === 1, isLast = page === totalPages;
+    newerBtn.style.opacity = isFirst ? '.4' : '1';
+    newerBtn.style.pointerEvents = isFirst ? 'none' : 'auto';
+    olderBtn.style.opacity = isLast ? '.4' : '1';
+    olderBtn.style.pointerEvents = isLast ? 'none' : 'auto';
+    if (!firstLoad) document.querySelector('.archive').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    firstLoad = false;
+  }
+
+  pageButtons.forEach((btn, i) => btn.addEventListener('click', () => showPage(i + 1)));
+  newerBtn.addEventListener('click', () => { if (currentPage > 1) showPage(currentPage - 1); });
+  olderBtn.addEventListener('click', () => { if (currentPage < totalPages) showPage(currentPage + 1); });
+  showPage(1);
+})();
+</script>
+  
 </body>
 </html>
