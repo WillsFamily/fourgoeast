@@ -29,6 +29,8 @@
     position:relative
   }
   .post-hero .frame img{width:100%;aspect-ratio:16/10;object-fit:cover}
+    .post-hero .frame .video-wrap{position:relative;width:100%;aspect-ratio:16/10}
+  .post-hero .frame .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
   .post-hero .frame .cap{
     font-family:"Caveat",cursive;font-size:30px;color:var(--ink);
     text-align:center;margin-top:18px
@@ -180,7 +182,9 @@
     <span class="tape-l"></span>
     <span class="tape-r"></span>
     <div class="frame">
-      <img src="" alt="The living &lt;em&gt;tractors&lt;/em&gt;">
+           <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/2wE2QPppHOY" title="Water buffalo in the rice paddies" allowfullscreen></iframe>
+      </div>
       <div class="cap">The living &lt;em&gt;tractors&lt;/em&gt;</div>
     </div>
   </section>
