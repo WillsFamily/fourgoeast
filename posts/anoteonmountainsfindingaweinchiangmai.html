@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Note on Mountains: Finding Awe in Chiang Mai — Four Go East</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .post-head{padding:20px 0 30px;text-align:center}
+  .post-head .meta-line{
+    display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
+    font-family:"Special Elite",monospace;font-size:12px;
+    letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);
+    margin-top:30px
+  }
+  .post-head .meta-line b{color:var(--ink);font-weight:bold}
+  .post-head .byline{
+    margin-top:18px;font-family:"Caveat",cursive;font-size:28px;color:var(--blue-pen);
+    transform:rotate(-1deg);display:inline-block
+  }
+
+  .post-hero{margin:50px auto 0;max-width:920px;position:relative}
+  .post-hero .frame{
+    background:#fff;padding:18px 18px 70px;
+    box-shadow:0 18px 60px rgba(60,40,10,.25);transform:rotate(-1.5deg);
+    position:relative
+  }
+  .post-hero .frame img{width:100%;aspect-ratio:16/10;object-fit:cover}
+  .post-hero .frame .cap{
+    font-family:"Caveat",cursive;font-size:30px;color:var(--ink);
+    text-align:center;margin-top:18px
+  }
+  .post-hero .tape-l,.post-hero .tape-r{
+    position:absolute;background:var(--tape);width:120px;height:26px;
+    box-shadow:0 1px 4px rgba(0,0,0,.1);z-index:2
+  }
+  .post-hero .tape-l{top:-12px;left:60px;transform:rotate(-6deg)}
+  .post-hero .tape-r{top:-8px;right:60px;transform:rotate(6deg);background:var(--tape-blue)}
+
+  .essay{
+    max-width:720px;margin:80px auto 60px;
+    font-family:"Crimson Pro",serif;font-size:20px;line-height:1.7
+  }
+  .essay p{margin-bottom:24px}
+  .essay p.lead::first-letter{
+    font-family:"Caveat",cursive;font-size:96px;float:left;line-height:.85;
+    padding:8px 14px 0 0;color:var(--red-stamp);font-weight:700
+  }
+  .essay h3.subhead{
+    font-family:"Caveat",cursive;font-size:48px;color:var(--ink);
+    margin:50px 0 20px;font-weight:700;line-height:1
+  }
+  .essay h3.subhead em{color:var(--red-stamp);font-style:italic}
+
+  .essay .pullquote{
+    font-family:"Caveat",cursive;font-size:46px;line-height:1.2;
+    color:var(--red-stamp);text-align:center;
+    border-top:2px dashed var(--paper-dark);border-bottom:2px dashed var(--paper-dark);
+    padding:40px 30px;margin:50px -40px;position:relative;font-weight:600
+  }
+  .essay .pullquote::before{
+    content:"\201C";position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+    background:var(--paper);padding:0 14px;font-size:60px;color:var(--red-stamp);
+    line-height:1
+  }
+
+  .tag-stamps{
+    max-width:720px;margin:60px auto 0;padding-top:30px;border-top:2px dashed var(--paper-dark);
+    display:flex;flex-wrap:wrap;gap:12px;align-items:center
+  }
+  .tag-stamps .label{
+    font-family:"Caveat",cursive;font-size:24px;color:var(--ink-soft);margin-right:6px
+  }
+  .tag-stamp{
+    font-family:"Special Elite",monospace;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;border:2px solid var(--green-stamp);color:var(--green-stamp);
+    padding:4px 10px;display:inline-block;transform:rotate(-2deg);background:rgba(255,255,255,.4)
+  }
+  .tag-stamp:nth-child(3n){border-color:var(--red-stamp);color:var(--red-stamp);transform:rotate(3deg)}
+  .tag-stamp:nth-child(4n){border-color:var(--blue-pen);color:var(--blue-pen);transform:rotate(-3deg)}
+
+  .leave-note{
+    max-width:720px;margin:80px auto 0;padding:30px;
+    background:#fff;box-shadow:0 8px 24px rgba(60,40,10,.15);
+    transform:rotate(-.6deg);position:relative
+  }
+  .leave-note .tape-strip{
+    position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-3deg);
+    width:120px;height:24px;background:var(--tape);box-shadow:0 1px 4px rgba(0,0,0,.08)
+  }
+  .leave-note h4{font-family:"Caveat",cursive;font-size:36px;margin-bottom:8px;color:var(--ink)}
+  .leave-note h4 em{color:var(--red-stamp);font-style:italic}
+  .leave-note p{font-family:"Crimson Pro",serif;font-style:italic;color:var(--ink-soft);margin-bottom:16px}
+  .leave-note textarea{
+    width:100%;background:transparent;border:none;
+    background-image:linear-gradient(to bottom,transparent 30px,var(--paper-dark) 30px,var(--paper-dark) 31px,transparent 31px);
+    background-size:100% 32px;line-height:32px;
+    font-family:"Caveat",cursive;font-size:22px;color:var(--blue-pen);
+    outline:none;resize:none;height:128px;padding:0
+  }
+  .leave-note .form-row{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+  .leave-note .form-row span{font-family:"Caveat",cursive;color:var(--ink-soft)}
+  .leave-note button{
+    background:var(--red-stamp);color:#fff;border:none;padding:10px 22px;
+    font-family:"Special Elite",monospace;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;cursor:pointer;transform:rotate(-2deg);
+    box-shadow:0 4px 10px rgba(169,56,40,.3)
+  }
+
+  .pn{
+    margin:80px auto 60px;max-width:920px;
+    display:grid;grid-template-columns:1fr 1fr;gap:30px
+  }
+  .pn a{
+    background:#fff;padding:24px;display:block;
+    box-shadow:0 6px 18px rgba(60,40,10,.14);transition:transform .25s ease;
+    position:relative
+  }
+  .pn a:hover{transform:translateY(-4px) scale(1.02)}
+  .pn a:first-child{transform:rotate(-1deg)}
+  .pn a:last-child{transform:rotate(1deg);text-align:right}
+  .pn a:first-child:hover{transform:rotate(-1deg) translateY(-4px) scale(1.02)}
+  .pn a:last-child:hover{transform:rotate(1deg) translateY(-4px) scale(1.02)}
+  .pn .label{
+    font-family:"Special Elite",monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;display:block
+  }
+  .pn h4{
+    font-family:"Caveat",cursive;font-size:30px;line-height:1.05;color:var(--ink);font-weight:700
+  }
+  .pn h4 em{color:var(--red-stamp);font-style:italic}
+
+  @media (max-width:880px){
+    .essay{font-size:18px;padding:0 6px}
+    .essay .pullquote{font-size:32px;margin:30px -10px;padding:30px 20px}
+    .pn{grid-template-columns:1fr}
+    .post-hero .tape-l,.post-hero .tape-r{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site">
+  <div class="brand">
+    <span class="brand-stamp">FGE · '26</span>
+    <a href="../index.html"><h1>Four Go East</h1></a>
+  </div>
+  <div class="navlinks">
+    <a href="../index.html">Home</a>
+    <a href="../journal.html">Journal</a>
+    <a href="../about.html">The Four</a>
+    <a href="../map.html">The Map</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="post-head">
+    <div class="breadcrumb"><a href="../index.html">home</a><span class="sep">→</span><a href="../journal.html">the journal</a><span class="sep">→</span><span>a note on mountains</span></div>
+    <div class="title-block" style="margin-top:30px">
+      <span class="tape t1"></span>
+      <span class="tape t2"></span>
+      <h2 class="titlemark">A Note on <span class="ink">Mountains</span></h2>
+      <div class="sub">finding awe in Chiang Mai</div>
+    </div>
+    <div class="meta-line">
+      <span>Filed <b>15 October 2025</b></span>
+      <span>Chiang Mai, Thailand</span>
+      <span><b>7 minute</b> read</span>
+    </div>
+    <div class="byline">— Written by J ✻</div>
+  </header>
+
+  <section class="post-hero">
+    <span class="tape-l"></span>
+    <span class="tape-r"></span>
+    <div class="frame">
+      <img src="../site-export/images/17605467_tempImageBremuI.gif" alt="Doi Suthep and Doi Pui rising above Chiang Mai">
+      <div class="cap">Doi Suthep and Doi Pui. Due west. Glorious.</div>
+    </div>
+  </section>
+
+  <article class="essay">
+    <p class="lead">This is more of a personal reflection than that of our family's journey, but I want to talk about mountains.</p>
+
+    <p>As I look out of the bedroom window of the apartment we are staying, due west of the city of Chiang Mai rises the twin peaks of Doi Pui and Doi Suthep, of the Thanon Thong Chai mountain range.</p>
+
+    <p>And they are glorious.</p>
+
+    <p>A certainty of solid form being brushed by whips of cloud, the result of earth-rendering violence played-out at a snail's pace. They are a silent sentinel surrounding the city, and a constant reminder of the power of nature, and the powerlessness that people have in the face of it.</p>
+
+    <h3 class="subhead">I've never really <em>seen mountains.</em></h3>
+
+    <p>I'm not the most travelled person — before meeting R I had ventured out from England's four walls (though not solo), either with family as I was growing up (France, the USA, the Netherlands) or inter-railing around Europe with a couple of friends/bandmates, busking and instantly moving-on when stopped by the police for busking and subsequently being instantly moved-on. Since meeting R and understanding that travel was simply part of who she is, my horizons have broadened, especially since starting a family.</p>
+
+    <p>But I've never really seen mountains.</p>
+
+    <p>Sure, I grew up in Cornwall, where we have the awe-inspiring high point of Brown Willy on Bodmin Moor (stop sniggering — and it's probably best not to Google it), but at a still-respectable elevation of 420 metres, it falls somewhere short of the two peaks I can see from the fifth floor right now (1700 and 1600 metres).</p>
+
+    <p>There are certain geographical features that some people simply have not yet experienced, in pretty-much any form, and when they actually do encounter them, it feels like something intrinsic has changed for them. It feels vital. It could be the first time seeing a river, a canyon, or of course if one hasn't experienced the ocean.</p>
+
+    <div class="pullquote">
+      For me,<br>it's mountains.
+    </div>
+
+    <p>The only other time I felt similar was a week's sanctuary in Nepal halfway through six-weeks backpacking across India, a few years ago. India, ancient, vibrant and incredible, is also a sensory overload, and we have often looked back and wondered what the hell we were thinking, taking a 9 and 7 year-old with us, particularly when checking into hotels where we were apparently sharing lodging. Specifically with cockroaches. But anyway, our stay in Nepal was a tonic; seven days spent at Chitwan National Park, before re-entering the dust-covered chaos at the Sonauli border and making our way down towards Kerala. It has attained a shimmering dream-like quality in my memory, as we let our bodies and spirits relax and renew, and we would spend often long periods of time sat at a viewing platform, looking over at the Himalayan foothills.</p>
+
+    <p>When I say I find mountains awe-inspiring, I mean it. It's not as simple as just finding them beautiful; there's also that bolt of fear that comes from deep within — an instinctive reaction to the experiencing of something so vast for the first time. You look. You see. Your brain registers that it's a mountain. You know what a mountain is, of course, but at the same time some ancient long-dormant part of your DNA has awoken, and is frantically sending warning signals. <em>It is big! Big things can be dangerous!</em></p>
+
+    <p>It is a tidal wave of rock, frozen in time, but nothing is ever truly still.</p>
+
+    <p>We are on the same path, but we are moving at a different pace, that is all.</p>
+
+    <p style="font-family:Caveat,cursive;font-size:32px;color:var(--blue-pen);text-align:right;transform:rotate(-2deg);display:inline-block;margin-top:30px">— J ✻</p>
+  </article>
+
+  <div class="tag-stamps">
+    <span class="label">tagged →</span>
+    <span class="tag-stamp">Chiang Mai</span>
+    <span class="tag-stamp">Thailand</span>
+    <span class="tag-stamp">Reflection</span>
+    <span class="tag-stamp">Nature</span>
+    <span class="tag-stamp">Travel Writing</span>
+    <span class="tag-stamp">Mountains</span>
+  </div>
+
+  <section class="leave-note">
+    <span class="tape-strip"></span>
+    <h4>Leave a note in <em>the margins</em></h4>
+    <p>If anything resonated — or jarred — we'd love to hear it. We read every reply.</p>
+    <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ thank you — sent'">
+      <textarea placeholder="Write a few lines here…"></textarea>
+      <div class="form-row">
+        <span>— from a friend of the road</span>
+        <button type="submit">Slip it under the door →</button>
+      </div>
+    </form>
+  </section>
+
+  <nav class="pn">
+    <a href="../journal.html">
+      <span class="label">← All entries</span>
+      <h4>Back to <em>the journal</em></h4>
+    </a>
+    <a href="../posts/a-good-use-of-life-letting-go-of-home-to-travel-as-a-family.html">
+      <span class="label">Newer entry →</span>
+      <h4>A good use <em>of life</em></h4>
+    </a>
+  </nav>
+
+  <section class="postcard">
+    <div class="pc-wrap">
+      <div class="pc-front">
+        <h3>Read <em>the next page?</em></h3>
+        <p>A short letter every other Saturday with the latest entry, a photograph, and a daft thing one of the boys said this week.</p>
+        <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ on its way';">
+          <input type="text" placeholder="Your name…" required>
+          <input type="email" placeholder="Where shall we send it…" required>
+          <button type="submit">Pop in the post →</button>
+        </form>
+      </div>
+      <div class="pc-back">
+        <div class="pc-stamp-box"><span>FGE</span>'THAILAND'<br>POSTAGE PAID</div>
+        <div class="pc-postmark">CHIANG MAI<br>· 15 · 10 · 25 ·<br>THAILAND</div>
+        <div class="pc-address">
+          <div>To: a friend</div>
+          <div>of the road</div>
+          <div>somewhere warm</div>
+          <div>the world ✻</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site">
+  <p>Made with sticky-tape and slow internet — somewhere east of London ✻</p>
+  <div class="foot-links">
+    <a href="../index.html">Home</a>
+    <a href="../journal.html">Journal</a>
+    <a href="../about.html">The Four</a>
+    <a href="../map.html">The Map</a>
+    <a href="mailto:hello@fourgoeast.com">hello@fourgoeast.com</a>
+  </div>
+  <div class="typed">© 2026 four humans, four backpacks · hello@fourgoeast.com</div>
+</footer>
+
+</body>
+</html>
