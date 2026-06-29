@@ -1,112 +1,383 @@
-FGE · '26
-Four Go East
-Home Journal The Four The Map
-home→the journal
-The journal
-every page so far · 29 entries · 14 months on the road
-All Worldschooling Slow Travel Vietnam Hội An Thailand Family Tết Travel Writing Neurodiverse Travel Cultural Observations The Boys
-TAP A TAG TO FILTER — OR WANDER ALL THE WAY DOWN ✻
-2026 so far
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Journal — Four Go East</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇻🇳</text></svg>">
+<style>
+  .filters{
+    padding:40px 0 30px;border-bottom:2px dashed var(--paper-dark);
+    text-align:center
+  }
+  .filters .chips{justify-content:center;margin-bottom:14px;max-width:980px;margin-left:auto;margin-right:auto}
+  .filters small{
+    font-family:"Special Elite",monospace;font-size:11px;
+    letter-spacing:.15em;color:var(--ink-soft);text-transform:uppercase
+  }
 
-11 ENTRIES
-Hội An 
-14 · 03 · 269 min
-Tết II: Tết
-A deep breath before plunging into a new year — kumquats, red envelopes and bunting between the flag and the hammer-and-sickle.
-read on →
-Family 
-07 · 03 · 266 min
-Tết I: E's recollections
-"Yeah… I mean, they don't bother me…" — the eldest, on fireworks and a city he is beginning to call his.
-read on →
-Field 
-02 · 02 · 267 min
-The living tractors
-Water buffalo in shallow paddy water, dousing themselves with their tails. Content and untroubled.
-read on →
-Local Life 
-26 · 01 · 265 min
-The fruit man and the rice festival
-Hội An local life, seen through the steady rhythms of a man who knows every street by its produce.
-read on →
-Translation 
-12 · 01 · 266 min
-Beat poems & lucky wedding days
-Google Translate as accidental poet — and the strange beauty of weddings, mistranslations and good fortune.
-read on →
-Weather 
-07 · 01 · 267 min
-Vietnam rain
-Experiencing tropical storms in Hội An — the sound, the smell, the slow drift of a city under sheets of water.
-read on →
-2025 the long start
+  .archive{padding:60px 0 30px}
+  .archive .year-marker{
+    display:flex;align-items:center;gap:20px;margin:60px 0 30px
+  }
+  .archive .year-marker h3{
+    font-family:"Caveat",cursive;font-size:60px;color:var(--ink);font-weight:700
+  }
+  .archive .year-marker h3 em{color:var(--red-stamp);font-style:italic}
+  .archive .year-marker .doodle{
+    flex:1;height:2px;
+    background:repeating-linear-gradient(to right,var(--ink-soft) 0 6px,transparent 6px 12px);
+    opacity:.4
+  }
+  .archive .year-marker .count{
+    font-family:"Special Elite",monospace;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft)
+  }
 
-16 ENTRIES
-Culture 
-31 · 12 · 258 min
-Ghost buildings in Hội An
-Tourism, Western influx, and what happens when the things that make a place itself are diluted by their own success.
-read on →
-Holidays 
-23 · 12 · 259 min
-What Christmas looks like abroad
-Life in Vietnam at Christmas — fairy lights in the lemongrass, a tree on a scooter, a different sort of warm.
-read on →
-Reflection 
-22 · 12 · 258 min
-A walk to the light
-AA meetings in Vietnam — a quiet ledger of recovery, on the other side of the world.
-read on →
-Schooling 
-13 · 12 · 2511 min
-World-schooling in Vietnam
-How we educate two neurodiverse boys through travel — the days, the books, and the questions that don't have textbook answers.
-read on →
-Culture 
-05 · 12 · 257 min
-Dog meat & other differences
-Cultural observations from the other side of a familiar plate — held with curiosity, not judgement.
-read on →
-Đà Nẵng 
-24 · 11 · 256 min
-Da Nang airport, corruption, flooding
-Arrival in Vietnam, the long way round — bureaucracy, weather, and the patience of a family with four passports.
-read on →
-Bangkok 
-17 · 11 · 2510 min
-Bangkok limbo: the wind of the sea
-A waiting-room essay — visa stress, sticky heat, and the strange luxury of having nowhere immediate to be.
-read on →
-Trains 
-10 · 11 · 259 min
-The long train, monk smack
-Chiang Mai to Bangkok by sleeper — a moving meditation, a midnight monk, and the slowest sort of arrival.
-read on →
-Departure 
-28 · 10 · 258 min
-A good use of life
-How our usual lives shrank and shrank until everything we owned could fit into a single room — and why we hit 'buy now' anyway.
-read on →
-Reflection 
-15 · 10 · 257 min
-A note on mountains
-Looking due west from a fifth-floor window in Chiang Mai — on the strange, almost bodily jolt of encountering mountains for the first time.
-read on →
-← newer
-1 2 3
-older →
-Don't miss a page
-A short letter every other Saturday with the latest entry, a photograph, and a daft thing one of the boys said this week.
-Pop in the post →
-FGE'VIET NAM'
-POSTAGE PAID
-HOI AN
-· 18 · 05 · 26 ·
-VIETNAM
-To: a friend
-of the road
-somewhere warm
-the world ✻
-Made with sticky-tape and slow internet — somewhere east of London ✻
-Home Journal The Four The Map hello@fourgoeast.com
-© 2026 four humans, four backpacks · hello@fourgoeast.com
+  .entry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:50px 30px}
+  .entry-grid .entry:nth-child(6n+1){transform:rotate(-2deg)}
+  .entry-grid .entry:nth-child(6n+2){transform:rotate(1.5deg)}
+  .entry-grid .entry:nth-child(6n+3){transform:rotate(-1deg)}
+  .entry-grid .entry:nth-child(6n+4){transform:rotate(1deg)}
+  .entry-grid .entry:nth-child(6n+5){transform:rotate(-2deg)}
+  .entry-grid .entry:nth-child(6n){transform:rotate(2deg)}
+
+  .pagination{
+    margin:60px 0 90px;text-align:center;display:flex;justify-content:center;
+    align-items:center;gap:18px;flex-wrap:wrap
+  }
+  .pagination .page{
+    display:inline-grid;place-items:center;width:48px;height:48px;
+    border:2px dashed var(--paper-dark);border-radius:50%;
+    font-family:"Caveat",cursive;font-size:24px;color:var(--ink);
+    transition:all .2s
+  }
+  .pagination .page.active{
+    background:var(--red-stamp);color:#fff;border-color:var(--red-stamp);
+    transform:rotate(-4deg);border-style:solid
+  }
+  .pagination .page:not(.active):hover{
+    background:rgba(255,255,255,.5);transform:rotate(2deg);border-color:var(--ink)
+  }
+    .pagination .page{cursor:pointer}
+  .pagination .nav-link{
+    font-family:"Caveat",cursive;font-size:24px;color:var(--blue-pen);
+    border-bottom:2px dashed var(--blue-pen);padding-bottom:2px;cursor:pointer
+  }
+  .pagination .nav-link{
+    font-family:"Caveat",cursive;font-size:24px;color:var(--blue-pen);
+    border-bottom:2px dashed var(--blue-pen);padding-bottom:2px
+  }
+
+  @media (max-width:880px){
+    .entry-grid{grid-template-columns:1fr;gap:50px}
+    .archive .year-marker h3{font-size:40px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site">
+  <div class="brand">
+    <span class="brand-stamp">FGE · '26</span>
+    <a href="index.html"><h1>Four Go East</h1></a>
+  </div>
+  <div class="navlinks">
+    <a href="index.html">Home</a>
+    <a href="journal.html" class="active">Journal</a>
+    <a href="about.html">The Four</a>
+    <a href="map.html">The Map</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="pagetop">
+    <div class="breadcrumb"><a href="index.html">home</a><span class="sep">→</span><span>the journal</span></div>
+    <div class="title-block">
+      <span class="tape t1"></span>
+      <span class="tape t2"></span>
+      <h2 class="titlemark">The <span class="ink">journal</span></h2>
+      <div class="sub">every page so far · 27 entries · 14 months on the road</div>
+    </div>
+  </header>
+
+  <section class="filters">
+    <div class="chips">
+      <a class="chip active">All</a>
+      <a class="chip">Worldschooling</a>
+      <a class="chip">Slow Travel</a>
+      <a class="chip">Vietnam</a>
+      <a class="chip">Hội An</a>
+      <a class="chip">Thailand</a>
+      <a class="chip">Family</a>
+      <a class="chip">Tết</a>
+      <a class="chip">Travel Writing</a>
+      <a class="chip">Neurodiverse Travel</a>
+      <a class="chip">Cultural Observations</a>
+      <a class="chip">The Boys</a>
+    </div>
+    <small>tap a tag to filter — or wander all the way down ✻</small>
+  </section>
+
+  <section class="archive">
+
+    <div class="year-marker">
+      <h3>2026 <em>so far</em></h3>
+      <span class="doodle"></span>
+      <span class="count">11 entries</span>
+    </div>
+
+    <div class="entry-grid">
+      <article class="entry">
+        <span class="tape-strip"></span>
+        <span class="stamp-tag">Hội An</span>
+        <a href="post.html"><img class="entry-img" src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/608035b9-8853-4bd8-8996-d89948035f55/tempImageCNGToI.jpg?format=750w" alt=""></a>
+        <div class="entry-meta"><span>14 · 03 · 26</span><span>9 min</span></div>
+        <h4>Tết II: <em>Tết</em></h4>
+        <p>A deep breath before plunging into a new year — kumquats, red envelopes and bunting between the flag and the hammer-and-sickle.</p>
+        <a href="post.html" class="read-more">read on →</a>
+      </article>
+
+      <article class="entry">
+        <span class="tape-strip" style="background:var(--tape-blue)"></span>
+        <span class="stamp-tag" style="border-color:var(--blue-pen);color:var(--blue-pen)">Family</span>
+        <a href="posts/tet-i-es-recollections.html"><img class="entry-img" src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/1772875491669-IUZEOTYLPR270ZUVXT81/tempImageCYVqSI.gif?format=600w" alt=""></a>
+        <div class="entry-meta"><span>07 · 03 · 26</span><span>6 min</span></div>
+        <h4>Tết I: <em>E's recollections</em></h4>
+        <p>"Yeah… I mean, they don't bother me…" — the eldest, on fireworks and a city he is beginning to call his.</p>
+        <a href="posts/tet-i-es-recollections.html" class="read-more">read on →</a>
+      </article>
+
+      <article class="entry">
+        <span class="tape-strip"></span>
+        <span class="stamp-tag">Field</span>
+        <a href="posts/water-buffalo-in-vietnam-the-living-tractors-of-the-east.html"><img class="entry-img" src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/1770045741062-Z55YJ12A7IT0C11HA0MH/tempImage3nYkCa.gif?format=600w" alt=""></a>
+        <div class="entry-meta"><span>02 · 02 · 26</span><span>7 min</span></div>
+        <h4>The living <em>tractors</em></h4>
+        <p>Water buffalo in shallow paddy water, dousing themselves with their tails. Content and untroubled.</p>
+        <a href="posts/water-buffalo-in-vietnam-the-living-tractors-of-the-east.html" class="read-more">read on →</a>
+      </article>
+
+ 
+
+      <article class="entry">
+        <span class="tape-strip"></span>
+        <span class="stamp-tag">Local Life</span>
+        <a href="posts/hoi-an-local-life-the-fruit-man-and-the-rice-festival.html"><img class="entry-img" src="site-export/images/17694197_tempImagewzTg7G.gif" alt=""></a>
+        <div class="entry-meta"><span>26 · 01 · 26</span><span>5 min</span></div>
+        <h4>The fruit man <em>and the rice festival</em></h4>
+        <p>Hội An local life, seen through the steady rhythms of a man who knows every street by its produce.</p>
+        <a href="posts/hoi-an-local-life-the-fruit-man-and-the-rice-festival.html" class="read-more">read on →</a>
+      </article>
+
+      <article class="entry">
+        <span class="tape-strip" style="background:var(--tape-blue)"></span>
+        <span class="stamp-tag" style="border-color:var(--blue-pen);color:var(--blue-pen)">Translation</span>
+        <a href="posts/google-translate-beat-poems-lucky-wedding-days.html"><img class="entry-img" src="site-export/images/02dcfff4_thumbnail_IMG_9642.png" alt=""></a>
+        <div class="entry-meta"><span>12 · 01 · 26</span><span>6 min</span></div>
+        <h4>Beat poems &amp; <em>lucky wedding days</em></h4>
+        <p>Google Translate as accidental poet — and the strange beauty of weddings, mistranslations and good fortune.</p>
+             <a href="posts/google-translate-beat-poems-lucky-wedding-days.html" class="read-more">read on →</a>
+      </article>
+
+      <article class="entry">
+        <span class="tape-strip" style="background:var(--tape-pink)"></span>
+        <span class="stamp-tag" style="border-color:var(--red-stamp);color:var(--red-stamp)">Weather</span>
+        <a href="posts/vietnam-rain-experiencing-tropical-storms-in-hoi-an.html"><img class="entry-img" src="site-export/images/17677193_Screenshot+2026-01-07+at+00.09.11.png" alt=""></a>
+        <div class="entry-meta"><span>07 · 01 · 26</span><span>7 min</span></div>
+        <h4>Vietnam <em>rain</em></h4>
+        <p>Experiencing tropical storms in Hội An — the sound, the smell, the slow drift of a city under sheets of water.</p>
+        <a href="posts/vietnam-rain-experiencing-tropical-storms-in-hoi-an.html" class="read-more">read on →</a>
+      </article>
+    </div>
+
+    <div class="year-marker">
+      <h3>2025 <em>the long start</em></h3>
+      <span class="doodle"></span>
+           <span class="count">14 entries</span>
+    </div>
+
+    <div class="entry-grid">
+      <article class="entry">
+        <span class="tape-strip" style="background:var(--tape-pink)"></span>
+        <span class="stamp-tag" style="border-color:var(--red-stamp);color:var(--red-stamp)">Culture</span>
+        <a href="posts/ghost-buildings-in-vietnam-tourism-western-influx-and-cultural-erosion-in-hoi-an.html"><img class="entry-img" src="site-export/images/17671172_tempImageSxubDS.gif" alt=""></a>
+        <div class="entry-meta"><span>31 · 12 · 25</span><span>8 min</span></div>
+        <h4>Ghost buildings in <em>Hội An</em></h4>
+        <p>Tourism, Western influx, and what happens when the things that make a place itself are diluted by their own success.</p>
+        <a href="posts/ghost-buildings-in-vietnam-tourism-western-influx-and-cultural-erosion-in-hoi-an.html" class="read-more">read on →</a>
+      </article>
+
+      <article class="entry">
+        <span class="tape-strip" style="background:var(--tape-pink)"></span>
+        <span class="stamp-tag" style="border-color:var(--red-stamp);color:var(--red-stamp)">Holidays</span>
+        <a href="posts/life-in-vietnam-what-christmas-looks-like-when-youre-living-abroad.html"><img class="entry-img" src="site-export/images/17671166_tempImagep3J5Cy.gif" alt=""></a>
+        <div class="entry-meta"><span>23 · 12 · 25</span><span>9 min</span></div>
+        <h4>What <em>Christmas</em> looks like abroad</h4>
+        <p>Life in Vietnam at Christmas — fairy lights in the lemongrass, a tree on a scooter, a different sort of warm.</p>
+        <a href="posts/life-in-vietnam-what-christmas-looks-like-when-youre-living-abroad.html" class="read-more">read on →</a>
+      </article>
+
+
+      <article class="entry">
+        <span class="tape-strip" style="background:var(--tape-blue)"></span>
+        <span class="stamp-tag" style="border-color:var(--blue-pen);color:var(--blue-pen)">Reflection</span>
+        <a href="posts/life-in-vietnam-aa-meetings-a-walk-to-the-light.html"><img class="entry-img" src="site-export/images/17664219_tempImagetkEsaK.gif" alt=""></a>
+        <div class="entry-meta"><span>22 · 12 · 25</span><span>8 min</span></div>
+        <h4>A walk to <em>the light</em></h4>
+        <p>AA meetings in Vietnam — a quiet ledger of recovery, on the other side of the world.</p>
+        <a href="posts/life-in-vietnam-aa-meetings-a-walk-to-the-light.html" class="read-more">read on →</a>
+      </article>
+
+
+      <article class="entry">
+        <span class="tape-strip"></span>
+        <span class="stamp-tag">Schooling</span>
+        <a href="posts/world-schooling-in-vietnam-how-we-educate-through-travel.html"><img class="entry-img" src="site-export/images/17656165_E&e+Reading.jpg" alt=""></a>
+        <div class="entry-meta"><span>13 · 12 · 25</span><span>11 min</span></div>
+        <h4>World-schooling <em>in Vietnam</em></h4>
+        <p>How we educate two neurodiverse boys through travel — the days, the books, and the questions that don't have textbook answers.</p>
+        <a href="posts/world-schooling-in-vietnam-how-we-educate-through-travel.html" class="read-more">read on →</a>
+      </article>
+        
+      <article class="entry">
+        <span class="tape-strip"></span>
+        <span class="stamp-tag">Culture</span>
+        <a href="posts/dog-meat-in-vietnam-amp-other-cultural-differences.html"><img class="entry-img" src="site-export/images/17649174_tempImageC5ZezU.gif" alt=""></a>
+        <div class="entry-meta"><span>05 · 12 · 25</span><span>7 min</span></div>
+        <h4>Dog meat &amp; <em>other differences</em></h4>
+        <p>Cultural observations from the other side of a familiar plate — held with curiosity, not judgement.</p>
+        <a href="posts/dog-meat-in-vietnam-amp-other-cultural-differences.html" class="read-more">read on →</a>
+      </article>
+
+      <article class="entry">
+        <span class="tape-strip" style="background:var(--tape-pink)"></span>
+        <span class="stamp-tag" style="border-color:var(--red-stamp);color:var(--red-stamp)">Đà Nẵng</span>
+        <a href="posts/da-nang-airport-corruption-flooding.html"><img class="entry-img" src="site-export/images/17639958_tempImagez4z85j.gif" alt=""></a>
+        <div class="entry-meta"><span>24 · 11 · 25</span><span>6 min</span></div>
+        <h4>Da Nang airport, <em>corruption, flooding</em></h4>
+        <p>Arrival in Vietnam, the long way round — bureaucracy, weather, and the patience of a family with four passports.</p>
+        <a href="posts/da-nang-airport-corruption-flooding.html" class="read-more">read on →</a>
+      </article>
+
+      <article class="entry">
+        <span class="tape-strip"></span>
+        <span class="stamp-tag">Bangkok</span>
+        <a href="posts/bangkok-limbo-the-wind-of-the-sea.html"><img class="entry-img" src="site-export/images/17633717_tempImageteoy7b.gif" alt=""></a>
+        <div class="entry-meta"><span>17 · 11 · 25</span><span>10 min</span></div>
+        <h4>Bangkok limbo: <em>the wind of the sea</em></h4>
+        <p>A waiting-room essay — visa stress, sticky heat, and the strange luxury of having nowhere immediate to be.</p>
+        <a href="posts/bangkok-limbo-the-wind-of-the-sea.html" class="read-more">read on →</a>
+      </article>
+
+      <article class="entry">
+        <span class="tape-strip" style="background:var(--tape-blue)"></span>
+        <span class="stamp-tag" style="border-color:var(--blue-pen);color:var(--blue-pen)">Trains</span>
+        <a href="posts/the-long-train-monk-smack.html"><img class="entry-img"src="site-export/images/17627630_tempImagexRQufk.gif" alt=""></a>
+        <div class="entry-meta"><span>10 · 11 · 25</span><span>9 min</span></div>
+        <h4>The long train, <em>monk smack</em></h4>
+        <p>Chiang Mai to Bangkok by sleeper — a moving meditation, a midnight monk, and the slowest sort of arrival.</p>
+        <a href="posts/the-long-train-monk-smack.html" class="read-more">read on →</a>
+      </article>
+    </div>
+
+    <div class="pagination">
+      <span class="nav-link" style="opacity:.4">← newer</span>
+      <a class="page active">1</a>
+      <a class="page">2</a>
+      <a class="page">3</a>
+      <a class="nav-link">older →</a>
+    </div>
+
+  </section>
+
+  <section class="postcard">
+    <div class="pc-wrap">
+      <div class="pc-front">
+        <h3>Don't <em>miss a page</em></h3>
+        <p>A short letter every other Saturday with the latest entry, a photograph, and a daft thing one of the boys said this week.</p>
+        <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ on its way';">
+          <input type="text" placeholder="Your name…" required>
+          <input type="email" placeholder="Where shall we send it…" required>
+          <button type="submit">Pop in the post →</button>
+        </form>
+      </div>
+      <div class="pc-back">
+        <div class="pc-stamp-box"><span>FGE</span>'VIET NAM'<br>POSTAGE PAID</div>
+        <div class="pc-postmark">HOI AN<br>· 18 · 05 · 26 ·<br>VIETNAM</div>
+        <div class="pc-address">
+          <div>To: a friend</div>
+          <div>of the road</div>
+          <div>somewhere warm</div>
+          <div>the world ✻</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site">
+  <p>Made with sticky-tape and slow internet — somewhere east of London ✻</p>
+  <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="journal.html">Journal</a>
+    <a href="about.html">The Four</a>
+    <a href="map.html">The Map</a>
+    <a href="mailto:hello@fourgoeast.com">hello@fourgoeast.com</a>
+  </div>
+  <div class="typed">© 2026 four humans, four backpacks · hello@fourgoeast.com</div>
+</footer>
+
+<script>
+(function(){
+  const POSTS_PER_PAGE = 6;
+  const entries = Array.from(document.querySelectorAll('.archive .entry'));
+  const totalPages = Math.ceil(entries.length / POSTS_PER_PAGE);
+  const pagination = document.querySelector('.pagination');
+  const pageButtons = Array.from(pagination.querySelectorAll('.page'));
+  const navLinks = Array.from(pagination.querySelectorAll('.nav-link'));
+  const newerBtn = navLinks[0];
+  const olderBtn = navLinks[navLinks.length - 1];
+  let currentPage = 1;
+  let firstLoad = true;
+
+  function showPage(page) {
+    currentPage = page;
+    entries.forEach(e => { e.style.display = ''; });
+    document.querySelectorAll('.archive .year-marker, .archive .entry-grid')
+      .forEach(el => { el.style.display = ''; });
+    entries.forEach((entry, i) => {
+      if (Math.floor(i / POSTS_PER_PAGE) + 1 !== page) entry.style.display = 'none';
+    });
+    document.querySelectorAll('.archive .year-marker').forEach(marker => {
+      let grid = marker.nextElementSibling;
+      while (grid && !grid.classList.contains('entry-grid')) grid = grid.nextElementSibling;
+      if (grid) {
+        const hasVisible = Array.from(grid.querySelectorAll('.entry')).some(e => e.style.display !== 'none');
+        if (!hasVisible) { marker.style.display = 'none'; grid.style.display = 'none'; }
+      }
+    });
+    pageButtons.forEach((btn, i) => btn.classList.toggle('active', i + 1 === page));
+    const isFirst = page === 1, isLast = page === totalPages;
+    newerBtn.style.opacity = isFirst ? '.4' : '1';
+    newerBtn.style.pointerEvents = isFirst ? 'none' : 'auto';
+    olderBtn.style.opacity = isLast ? '.4' : '1';
+    olderBtn.style.pointerEvents = isLast ? 'none' : 'auto';
+    if (!firstLoad) document.querySelector('.archive').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    firstLoad = false;
+  }
+
+  pageButtons.forEach((btn, i) => btn.addEventListener('click', () => showPage(i + 1)));
+  newerBtn.addEventListener('click', () => { if (currentPage > 1) showPage(currentPage - 1); });
+  olderBtn.addEventListener('click', () => { if (currentPage < totalPages) showPage(currentPage + 1); });
+  showPage(1);
+})();
+</script>
+  
+</body>
+</html>
