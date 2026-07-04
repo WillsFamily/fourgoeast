@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tết II: Tết — Four Go East</title>
+<title>The Rat House: Renting in Hội An — Four Go East</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇻🇳</text></svg>">
+<link rel="stylesheet" href="../style.css">
 <style>
   .post-head{padding:20px 0 30px;text-align:center}
   .post-head .meta-line{
@@ -67,6 +67,25 @@
     line-height:1
   }
 
+  .essay .photo-grid{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:26px;
+    margin:50px 0;clear:both
+  }
+  .essay .photo-grid .frame{
+    background:#fff;padding:10px 10px 42px;width:150px;
+    box-shadow:0 10px 26px rgba(60,40,10,.2);position:relative
+  }
+  .essay .photo-grid .frame:nth-child(odd){transform:rotate(-3deg)}
+  .essay .photo-grid .frame:nth-child(even){transform:rotate(2deg)}
+  .essay .photo-grid .frame img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+  .essay .photo-grid .frame .cap{
+    font-family:"Caveat",cursive;font-size:16px;text-align:center;margin-top:8px;color:var(--ink);line-height:1.15
+  }
+  .essay .photo-grid .label{
+    width:100%;text-align:center;font-family:"Special Elite",monospace;font-size:11px;
+    letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:-10px
+  }
+
   .essay .inline-img{margin:40px -40px}
   .essay .inline-img .frame{
     background:#fff;padding:16px 16px 50px;display:inline-block;
@@ -80,6 +99,16 @@
   }
   .essay .inline-img .frame .pin{top:8px;left:24px;transform:none}
   .essay::after{content:"";display:block;clear:both}
+
+  .essay .full-img{margin:50px -40px;clear:both}
+  .essay .full-img .frame{
+    background:#fff;padding:16px 16px 60px;
+    box-shadow:0 12px 30px rgba(60,40,10,.2);transform:rotate(1deg)
+  }
+  .essay .full-img .frame img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .essay .full-img .frame .cap{
+    font-family:"Caveat",cursive;font-size:24px;text-align:center;margin-top:12px;color:var(--ink)
+  }
 
   .tag-stamps{
     max-width:720px;margin:60px auto 0;padding-top:30px;border-top:2px dashed var(--paper-dark);
@@ -96,7 +125,6 @@
   .tag-stamp:nth-child(3n){border-color:var(--red-stamp);color:var(--red-stamp);transform:rotate(3deg)}
   .tag-stamp:nth-child(4n){border-color:var(--blue-pen);color:var(--blue-pen);transform:rotate(-3deg)}
 
-  /* leave a note */
   .leave-note{
     max-width:720px;margin:80px auto 0;padding:30px;
     background:#fff;box-shadow:0 8px 24px rgba(60,40,10,.15);
@@ -125,7 +153,6 @@
     box-shadow:0 4px 10px rgba(169,56,40,.3)
   }
 
-  /* Prev / next nav */
   .pn{
     margin:80px auto 60px;max-width:920px;
     display:grid;grid-template-columns:1fr 1fr;gap:30px
@@ -153,6 +180,9 @@
     .essay{font-size:18px;padding:0 6px}
     .essay .inline-img.left .frame,.essay .inline-img.right .frame{float:none;margin:20px auto;display:block;max-width:100%}
     .essay .inline-img{margin:30px 0}
+    .essay .full-img{margin:30px 0}
+    .essay .photo-grid{gap:16px}
+    .essay .photo-grid .frame{width:120px;padding:8px 8px 34px}
     .essay .pullquote{font-size:32px;margin:30px -10px;padding:30px 20px}
     .pn{grid-template-columns:1fr}
     .post-hero .tape-l,.post-hero .tape-r{display:none}
@@ -164,30 +194,30 @@
 <nav class="site">
   <div class="brand">
     <span class="brand-stamp">FGE · '26</span>
-    <a href="index.html"><h1>Four Go East</h1></a>
+    <a href="../index.html"><h1>Four Go East</h1></a>
   </div>
   <div class="navlinks">
-    <a href="index.html">Home</a>
-    <a href="journal.html">Journal</a>
-    <a href="about.html">The Four</a>
-    <a href="map.html">The Map</a>
+    <a href="../index.html">Home</a>
+    <a href="../journal.html">Journal</a>
+    <a href="../about.html">The Four</a>
+    <a href="../map.html">The Map</a>
   </div>
 </nav>
 
 <div class="container">
 
   <header class="post-head">
-    <div class="breadcrumb"><a href="index.html">home</a><span class="sep">→</span><a href="journal.html">the journal</a><span class="sep">→</span><span>tết ii</span></div>
+    <div class="breadcrumb"><a href="../index.html">home</a><span class="sep">→</span><a href="../journal.html">the journal</a><span class="sep">→</span><span>the rat house</span></div>
     <div class="title-block" style="margin-top:30px">
       <span class="tape t1"></span>
       <span class="tape t2"></span>
-      <h2 class="titlemark">Tết II: <span class="ink">Tết</span></h2>
-      <div class="sub">a deep breath before plunging into a new year</div>
+      <h2 class="titlemark">The <span class="ink">Rat House</span></h2>
+      <div class="sub">the second rental in Hội An — six bedrooms, a pool, and company we didn't invite</div>
     </div>
     <div class="meta-line">
-      <span>Filed <b>14 March 2026</b></span>
+      <span>Filed <b>25 April 2026</b></span>
       <span>Hội An, Việt Nam</span>
-      <span><b>9 minute</b> read</span>
+      <span><b>7 minute</b> read</span>
     </div>
     <div class="byline">— Written by J ✻</div>
   </header>
@@ -196,63 +226,82 @@
     <span class="tape-l"></span>
     <span class="tape-r"></span>
     <div class="frame">
-      <img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/608035b9-8853-4bd8-8996-d89948035f55/tempImageCNGToI.jpg?format=2500w" alt="Closed for Tết">
-      <div class="cap">Closed for Tết — Hội An, the morning of the new year</div>
+      <img src="../site-export/images/rat-house-hero.jpg" alt="View from the roof terrace at dusk, looking over the river towards palm trees">
+      <div class="cap">The view that came with it. Everything else, less so.</div>
     </div>
   </section>
 
   <article class="essay">
-    <p class="lead">Tết was an interesting experience, given that we are on the periphery of Vietnamese culture; closer than tourists but still very-much on the outer hinterland, which is to be expected. Anecdotal knowledge gleaned from people within the community who have experienced Tết before varied greatly, which led us to believe it would be either reminiscent to a zombie apocalypse, where the poor white westerners would be scrabbling around for grains of rice on the streets for the duration, or alternatively it would be business as usual, just with a tad more karaoke.</p>
+    <p class="lead">Before our current house — with our wonderful landlord and his lovely family living next door — there was The Rat House.</p>
 
-    <p>The truth was somewhere in the middle, at least here in Hội An. Apparently in smaller towns and villages outside of major conurbations you really would find eerie scenes of desolation, but given that Hội An is a major tourist town, many locals stayed for the duration.</p>
+    <p>It was the second place we rented here in Hội An. Before that we spent a month in a small, lodge-esque place in Cửa Đại, run by another lovely local family. It could only ever have been short-term — essentially a single room with a small mezzanine where E and e slept — but it saw us through most of the rainy season. Well, almost: I spent one mostly sleepless night when Hội An bore the brunt of Typhoon Kalmaeigi, quietly convinced the whole treehouse-type structure was about to tip over. When it was time to move on, we found an actual house to rent in the Cẩm An area. Traditional by Vietnamese standards in certain ways — the downstairs bedroom had no windows but did regularly host cockroaches (who nearly always defaulted on their rent), and the bathrooms were functional but nowhere you'd want to linger. We were there for just over a month.</p>
 
-    <div class="inline-img left">
+    <h3 class="subhead">And then came <em>The Rat House</em>.</h3>
+
+    <p>Initially, of course, we didn't call it that — 'cos we didn't know. The rent was a jump from what we'd been paying, but on the other hand, it was a hell of a house — the kind of place that's definitely worth trying, given the rental here is roughly a quarter to a fifth of what it would be in the UK. Six bedrooms, a pool, a huge roof terrace with generous views across to the river. Apologies, I sound like I'm turning into an estate agent — which, coincidentally, we've found to be universally uncaring, profit-driven liars, for the most part, whether they reside in Hội An or Halifax.</p>
+
+    <p>The first red flag was the fuss the landlord made over replacing the rusty, rocky, filthy fridge. Our first house had come with a mostly-new, very clean one; here it was more of a 'left on the side of the road' model. He eventually replaced it — with a slightly less rusty, less rocky version. As there usually is when moving into somewhere not brand-new, there were several issues, some medium-to-major, others small-to-medium. To be fair, the landlord got most of these sorted within the first few days: locks replaced, a chair deep-cleaned, access to the security cameras.</p>
+
+    <p>But over those first few days — amongst the unpacking and getting used to a new environment — I repeatedly came across something that looked suspiciously like rat shit.</p>
+
+    <p>Ah.</p>
+
+    <p>I was hoping it was old evidence of an old problem, or maybe just the odd one that would be scared off by the new tenants. Us.</p>
+
+    <div class="photo-grid">
+      <span class="label">exhibit one</span>
       <div class="frame">
-        <span class="pin"></span>
-        <img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/7cbb86da-9282-489e-825e-79202b883058/tempImage4LJO7g.jpg?format=750w" alt="Kumquat trees">
-        <div class="cap">Kumquat trees — a sign of wealth, prosperity and good luck</div>
+        <img src="../site-export/images/rat-house-poo-1.jpg" alt="A few small dark rat droppings held in the palm of a hand">
+        <div class="cap">Held for scale.</div>
+      </div>
+      <div class="frame">
+        <img src="../site-export/images/rat-house-poo-2.jpg" alt="A single dark dropping on a white kitchen countertop">
+        <div class="cap">And on the counter.</div>
       </div>
     </div>
 
-    <p>Tết is the most important holiday in Vietnam, the lunar new year. Essentially it's their value of Christmas and New Year's all rolled into one. And just like Christmas in the West, traditional practices collide with contemporary trends, innovations in technology and individual preferences.</p>
+    <p>Until one evening, when we were watching TV, our youngest — e — suddenly blurted out, 'Rat! A rat!' Sure enough, with a sinking feeling, I turned, and sure enough: there was Roland, sitting on the stairs, possibly trying to join in with our family evening. I can't remember what I grabbed to try and trap it — a bowl or something — but I didn't get anywhere near before it scarpered, high-tailed (literally) it into the lounge, and vanished behind the huge, solid wooden TV cabinet. After much banging and pushing stuff into the cracks, it had had enough, made a break for it through the lounge and open-plan kitchen and, fortunately, straight out of the open door. And don't come back!</p>
 
-    <p>Some of the most common aspects of Tết is the giving of money in special red envelopes (the colour red symbolises good luck), from older people to the young, to wish them health and success — as visitors, we were encouraged to join in with this practice, and did so with the family of the first landlord we had.</p>
+    <div class="pullquote">But, alas,<br>Roland had friends.</div>
 
-    <p>People also display bright yellow apricot blossoms, and the sight of trucks, trailers or even adapted scooters carrying big pots of kumquat trees, the small orange balls bouncing in transit, is a common one. The kumquats (I mistakenly thought they were satsumas) represent wealth, whilst the tree itself symbolises longevity and luck, and are usually placed at the entrance to a property.</p>
+    <p>Over the next few days we heard them in the walls, saw one on top of an air-con unit, and — worst of all — found evidence of them in our kitchen. Sealed packets chewed open and dragged across the floor. More droppings.</p>
 
-    <h3 class="subhead">And then, <em>the flags</em>.</h3>
-
-    <p>The flags are everywhere. Outside of people's houses, bunting strung up across roads — a combination of the Vietnamese flag (surely one of the coolest flags) as well as the communist hammer-and-sickle motif, bringing cheerful USSR flashbacks. Tết is officially a three-day celebration, but usually extends to a week. Some shops and restaurants are closed for a few days either side of this, whereas some are open throughout.</p>
-
-    <div class="pullquote">
-      It was a pause. A deep breath <br>before plunging into a new year.
-    </div>
-
-    <p>In the end, I suppose, when viewed from the outside-in, as we are in this culture, Tết came and went in a fluttering blaze of coloured bunting, yellow kumquat trees, intermittent fireworks and karaoke.</p>
-
-    <div class="inline-img right">
+    <div class="photo-grid">
+      <span class="label">the kitchen, exhibit two</span>
       <div class="frame">
-        <img src="https://images.squarespace-cdn.com/content/v1/68e78065428a7a717cd226d1/385e1f09-b046-4b74-a282-10d3c8ec09e6/tempImagewHrZus.jpg?format=750w" alt="Bunting">
-        <div class="cap">CHÚC MỪNG NĂM MỚI — happy new year ✻</div>
+        <img src="../site-export/images/rat-house-evidence-1.jpg" alt="A bag of pretzels next to a dark snack packet torn open">
+        <div class="cap">Sealed packets, opened the hard way.</div>
+      </div>
+      <div class="frame">
+        <img src="../site-export/images/rat-house-evidence-2.jpg" alt="A green snack packet with a gnawed hole torn through its corner">
+        <div class="cap">Same trick, a different corner.</div>
+      </div>
+      <div class="frame">
+        <img src="../site-export/images/rat-house-evidence-3.jpg" alt="A brown snack packet with a gnawed hole close up">
+        <div class="cap">And again — nothing was safe.</div>
+      </div>
+      <div class="frame">
+        <img src="../site-export/images/rat-house-evidence-4.jpg" alt="A cupboard floor scattered with droppings and one abandoned pretzel">
+        <div class="cap">Droppings, and one abandoned pretzel.</div>
       </div>
     </div>
 
-    <p>It was good to witness it firsthand, as a few years before when travelling around India we had experienced Diwali in Udaipur and Jodhpur, which was (as India is in general) a lot more intense, a lot more urgent. Tết was a time of celebration but also of rest, and reflection.</p>
+    <p>I won't go into the back-and-forth we had with the landlord over this, but suffice to say our argument — that it was a major hygiene issue, given the rats were in our kitchen and getting into our food — wasn't deemed important enough. And that, in just over a week of living there, was that for The Rat House. Communications, negotiations and agreements with the landlord and the agent followed, and on the very day of my birthday, we found ourselves without a permanent residence.</p>
 
-    <p>A pause, a deep breath before plunging into a new year.</p>
+    <p>Our first visa run was coming up in a couple of days — we were due to fly to Kuala Lumpur for a week — so we checked into a guesthouse literally up the road from The Rat House, and had a relaxing few days where we could reassuringly put the air-con on with no fear of a little rat-head poking out.</p>
+
+    <p style="font-family:Caveat,cursive;font-size:32px;color:var(--blue-pen);text-align:center;margin-top:10px">And no rat shit.</p>
 
     <p style="font-family:Caveat,cursive;font-size:32px;color:var(--blue-pen);text-align:right;transform:rotate(-2deg);display:inline-block;margin-top:30px">— J ✻</p>
   </article>
 
   <div class="tag-stamps">
     <span class="label">tagged →</span>
-    <span class="tag-stamp">Tết Vietnam</span>
-    <span class="tag-stamp">Lunar New Year</span>
     <span class="tag-stamp">Hội An</span>
-    <span class="tag-stamp">Vietnamese Culture</span>
-    <span class="tag-stamp">Holidays Abroad</span>
-    <span class="tag-stamp">Travel Writing</span>
+    <span class="tag-stamp">Housing</span>
+    <span class="tag-stamp">Cultural Observations</span>
     <span class="tag-stamp">Family</span>
+    <span class="tag-stamp">The Boys</span>
   </div>
 
   <section class="leave-note">
@@ -269,13 +318,13 @@
   </section>
 
   <nav class="pn">
-    <a href="posts/tet-i-es-recollections.html">
+    <a href="../post.html">
       <span class="label">← Older entry</span>
-      <h4>Tết I: <em>E's recollections</em></h4>
+      <h4>Tết II: <em>Tết</em></h4>
     </a>
-    <a href="posts/the-rat-house-renting-in-hoi-an.html">
-      <span class="label">Newer entry →</span>
-      <h4>The <em>Rat House</em></h4>
+    <a href="../journal.html">
+      <span class="label">Back to →</span>
+      <h4>the journal</h4>
     </a>
   </nav>
 
@@ -292,7 +341,7 @@
       </div>
       <div class="pc-back">
         <div class="pc-stamp-box"><span>FGE</span>'VIET NAM'<br>POSTAGE PAID</div>
-        <div class="pc-postmark">HOI AN<br>· 18 · 05 · 26 ·<br>VIETNAM</div>
+        <div class="pc-postmark">HỘI AN<br>· 25 · 04 · 26 ·<br>VIETNAM</div>
         <div class="pc-address">
           <div>To: a friend</div>
           <div>of the road</div>
@@ -308,10 +357,10 @@
 <footer class="site">
   <p>Made with sticky-tape and slow internet — somewhere east of London ✻</p>
   <div class="foot-links">
-    <a href="index.html">Home</a>
-    <a href="journal.html">Journal</a>
-    <a href="about.html">The Four</a>
-    <a href="map.html">The Map</a>
+    <a href="../index.html">Home</a>
+    <a href="../journal.html">Journal</a>
+    <a href="../about.html">The Four</a>
+    <a href="../map.html">The Map</a>
     <a href="mailto:hello@fourgoeast.com">hello@fourgoeast.com</a>
   </div>
   <div class="typed">© 2026 four humans, four backpacks · hello@fourgoeast.com</div>
