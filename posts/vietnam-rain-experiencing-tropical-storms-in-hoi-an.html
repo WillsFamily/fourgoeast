@@ -255,9 +255,9 @@
       <div class="pc-front">
         <h3>Read <em>the next page?</em></h3>
         <p>A short letter every other Saturday with the latest entry, a photograph, and a daft thing one of the boys said this week.</p>
-        <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ on its way';">
-          <input type="text" placeholder="Your name…" required>
-          <input type="email" placeholder="Where shall we send it…" required>
+        <form action="https://formspree.io/f/xwvgokvb" method="POST">
+          <input type="text" name="name" placeholder="Your name…" required>
+          <input type="email" name="email" placeholder="Where shall we send it…" required>
           <button type="submit">Pop in the post →</button>
         </form>
       </div>
@@ -288,5 +288,6 @@
   <div class="typed">© 2026 four humans, four backpacks · hello@fourgoeast.com</div>
 </footer>
 
+<script src="../postcard.js"></script>
 </body>
 </html>
